@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Extra Vehicular Activity Study</title>
+    <link rel="stylesheet" href="{{ url_for ('static',
+    filename='lib/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{ url_for ('static',
+    filename='lib/css/keen-dashboards.css')}}">
+    <link rel="stylesheet" href="{{ url_for ('static', filename='lib/css/dc.css')}}">
+    <link rel="stylesheet" href="{{ url_for ('static', filename='css/custom.css')}}">
+    <link rel="stylesheet" href="{{url_for ('static', filename='lib/css/introjs.css')}}" />
+</head>
+<body class="application">
+  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="./">Extra Vehicular Activity Study</a>
+          <button class="intro_button" type="button" autofocus onclick="javascript:introJs().start();">Start Tour!</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
