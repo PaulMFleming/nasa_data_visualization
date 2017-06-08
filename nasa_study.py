@@ -10,16 +10,18 @@ MONGODB_PORT = 27017
 DBS_NAME = 'nasaData'
 COLLECTION_NAME = 'missions'
 
-
 @app.route('/')
-def index():
-    """
-    A Flask view to serve the main page.
-    """
-    return render_template("index.html")
+def home():
+    return render_template('home.html')
+@app.route('/about')
+def about():
+    return render_template('about.html')
+@app.route('/missions')
+def missions():
+    return render_template('missions.html')
 
 @app.route("/nasaData/missions")
-def nada_missions():
+def nasa_missions():
     """
     A Flask view to serve the project data
     from MongoDB in JSON format.
@@ -44,4 +46,4 @@ def nada_missions():
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
