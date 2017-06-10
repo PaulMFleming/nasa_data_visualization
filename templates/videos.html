@@ -3,14 +3,28 @@
     <div class="container">
         <div class="col-sm-12 centered  white-box">
            <h2>Suit Up</h2>
-           <video controls>
-                <source src="{{ url_for ('static', filename='lib/video/WhatIsEVA.mp4')}}" type="video/mp4">
+
+           <video controls poster="{{ url_for ('static', filename='lib/images/suitupPoster.jpg')}}">
+                <source src="https://www.youtube.com/embed/Z62z64-AyH0" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
             <div class="info-box">
+                <h3>NASA Documentary celebrating 50 years of Spacewalks</h3>
                 <p>Video source: <a href="https://www.nasa.gov/audience/foreducators/topnav/materials/listbytype/Extravehicular_Activity.html" target="_blank">Nasa</a> </p>
                 <p>For more videos <a href="#" target="_blank">click here.</a> </p>
             </div>
        </div>
+
+        <div class="col-sm-12 white-box">
+           <div class="row padding-top">
+                <div class="col-sm-6">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/uAPBRvd8OTY" frameborder="0" allowfullscreen></iframe>
+                </div>
+               <div class="col-sm-6">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/CPZSivgyV94" frameborder="0" allowfullscreen></iframe>
+               </div>
+            </div>
+        </div>
+
     </div>
 {% endblock %}

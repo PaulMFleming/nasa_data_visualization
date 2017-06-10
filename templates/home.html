@@ -2,17 +2,55 @@
 {% block content %}
     <div class="container">
 
+        <!-- Carousel -->
         <div class="col-sm-12 centered white-box">
-                    <h2>Welcome!</h2>
-                    <div class="info-box">
-                        <h3>Let's learn about Extra-vehicular Activity</h3>
-                        <p>More commonly known as Spacewalking</p>
+            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                </ol>
+
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <img src="{{ url_for('static', filename='lib/images/spacewalk1.jpg') }}" alt="Spacewalk Image">
+                        <div class="carousel-caption">
+                            <h2>Welcome!</h2>
+                            <div class="info-box carousel-caption-box">
+                                <h3>Let's learn about Extra-vehicular Activity</h3>
+                            </div>
+                        </div>
                     </div>
+
+                    <div class="item">
+                        <img src="{{ url_for('static', filename='lib/images/spacewalk2.jpg') }}" alt="Spacewalk Image">
+                        <div class="carousel-caption">
+                            <div class="info-box carousel-caption-box">
+                                <h3>Extra-vehicular Activity is more commonly known as Spacewalking</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <img src="{{ url_for('static', filename='lib/images/spacewalk3.jpg') }}" alt="New York">
+                        <div class="carousel-caption">
+                            <div class="info-box carousel-caption-box">
+                                <h3>Spacewalking is hella cool!</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+        <!-- end Carousel -->
+
+        <!-- What is EVA box -->
         <div class="col-sm-12 centered white-box">
             <h2>What is Extra-Vehicular Activity?</h2>
             <h3 class="underlined-content">  Let Nasa Explain!  </h3>
-            <video controls>
+            <video controls poster="{{ url_for ('static', filename='lib/images/EVAposter.png')}}">
                 <source src="{{ url_for ('static', filename='lib/video/WhatIsEVA.mp4')}}" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
@@ -21,6 +59,8 @@
                 <p>For more videos <a href="#" target="_blank">click here.</a> </p>
             </div>
         </div>
+        <!-- end What is EVA box -->
+
         <div class="col-sm-12 centered white-box">
             <h2>How many EVAs have there been?</h2>
             <p>**** GRAPH GOES HERE ****</p>
