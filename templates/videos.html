@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="container">
+        <div class="col-sm-12 centered  white-box">
+           <h2>Suit Up</h2>
+           <video controls>
+                <source src="{{ url_for ('static', filename='lib/video/WhatIsEVA.mp4')}}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="info-box">
+                <p>Video source: <a href="https://www.nasa.gov/audience/foreducators/topnav/materials/listbytype/Extravehicular_Activity.html" target="_blank">Nasa</a> </p>
+                <p>For more videos <a href="#" target="_blank">click here.</a> </p>
+            </div>
+       </div>
+    </div>
+{% endblock %}

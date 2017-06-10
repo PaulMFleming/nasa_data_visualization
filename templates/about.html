@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="container">
+        <div class="col-sm-12 centered  white-box">
+           <h2>About</h2>
+           <div class="info-box">
+               <ul>
+                   <h4>The data in the dataset used on this site was last updated on April 7, 2015, so any EVAs after that date aren't included on this site.</h4>
+                   <h4>I created this website as a study of Extra-vehicular Activities using all open source tools.</h4>
+                   <h4>All links have been provided to the source material of the relevant data, videos and images.</h4>
+                   <h4>You can check out the code for this site on my Github <a href="#" target="_blank">here.</a> </h4>
+               </ul>
+           </div>
+            <h2>Further Exploration</h2>
+            <div class="info-box row">
+                <h3>Click on the logo to learn more about</h3>
+                <div class="col-sm-6">
+                    <img src="{{ url_for('static', filename='lib/images/nasaLogo.png') }}" class="logo-sizing">
+                </div>
+                <div class="col-sm-6">
+                    <img src="{{ url_for('static', filename='lib/images/russiaLogo.png') }}" class="logo-sizing">
+                </div>
+            </div>
+       </div>
+    </div>
+{% endblock %}

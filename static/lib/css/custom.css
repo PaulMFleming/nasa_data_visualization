@@ -1,0 +1,74 @@
+/*
+ * Animated background
+ */
+body.application {
+   width: 100%;
+   height: 100%;
+   margin: 0px auto;
+   background-color: #000;
+   background-image: url("/static/lib/images/stars1.png"), url("/static/lib/images/stars2.png");
+   background-position: 140% 70px, 0px 0px, 0px 0px;
+   background-repeat: no-repeat, repeat, repeat;
+   animation: animate-background linear 50s infinite;
+}
+@keyframes animate-background{
+   from { background-position: 140% 70px, 0px 0px, 0px 0px;}
+   to { background-position: -50% 70px, -500px 0px, -1550px 0px;}
+}
+
+/*
+ * Space Agency Logos
+ */
+.logo-sizing {
+    width: 50%;
+}
+
+/*
+ * Content boxes
+ */
+.white-box{
+    background-color: rgba(255,255,255,0.9);
+    color: #000000;
+    margin: 10px;
+    padding-bottom: 20px;
+    text-align: center;
+
+}
+.info-box {
+    margin-top: 20px;
+    border-style: solid;
+    border-color: #000000;
+    border-width: 1px;
+    padding: 20px;
+}
+.underlined-content {
+    text-decoration: underline;
+}
+
+/*
+* Display navigation links inline
+*/
+.menu {
+    float: right;
+    margin-top: 8px;
+    padding-bottom: 50px;
+}
+.menu li {
+    display: inline;
+}
+.menu li + li {
+    margin-left: 35px;
+}
+.menu li a {
+    color: #999;
+    text-decoration: none;
+}
+
+/*
+ * make videos responsive
+*/
+video {
+    width: 50%;     !important
+    height: auto;   !important
+    padding-bottom: 15px;
+}
