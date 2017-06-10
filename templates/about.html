@@ -5,21 +5,78 @@
            <h2>About</h2>
            <div class="info-box">
                <ul>
-                   <h4>The data in the dataset used on this site was last updated on April 7, 2015, so any EVAs after that date aren't included on this site.</h4>
-                   <h4>I created this website as a study of Extra-vehicular Activities using all open source tools.</h4>
-                   <h4>All links have been provided to the source material of the relevant data, videos and images.</h4>
-                   <h4>You can check out the code for this site on my Github <a href="#" target="_blank">here.</a> </h4>
+                   <h4></h4>
+                   <h4>I created this website as a study of Extra-vehicular Activities using all open source tools.
+                       The data in the dataset used on this site was last updated on April 7, 2015, so any EVAs after
+                       that date aren't included on this site unfortunately.</h4>
+                   <h4>All links have been provided to the source material of the relevant data, videos and images.
+                   You can check out the code for this site on my Github <a href="#" target="_blank">here.</a> </h4>
                </ul>
            </div>
+        </div>
+        <div class="col-sm-12 centered white-box">
             <h2>Further Exploration</h2>
-            <div class="info-box row">
-                <h3>Click on the logo to learn more about</h3>
-                <div class="col-sm-6">
-                    <img src="{{ url_for('static', filename='lib/images/nasaLogo.png') }}" class="logo-sizing">
+            <div class="col-sm-12">
+                <div class="info-box">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <h3>NASA</h3>
+                            <p>
+                                The National Aeronautics and Space Administration (NASA /ˈnæsə/) is an independent
+                                agency of the executive branch of the United States federal government responsible
+                                for the civilian space program, as well as aeronautics and aerospace research
+                            </p>
+                            <p><a href="https://en.wikipedia.org/wiki/NASA" target="_blank">Continue Reading</a> </p>
+                            <a href="https://en.wikipedia.org/wiki/NASA" target="_blank">
+                                <img src="{{ url_for('static', filename='lib/images/nasaLogo.png') }}" class="logo-sizing">
+                            </a>
+                        </div>
+                        <div class="col-sm-6">
+                            <h3>Roscosmos State Corporation</h3>
+                            <p>
+                                The Roscosmos State Corporation for Space Activities (Russian: Государственная корпорация
+                                по космической деятельности «Роскосмос»), commonly known as Roscosmos (Russian: Роскосмос),
+                                is the governmental body responsible for the space science program of Russia and general aerospace research.
+                            </p>
+                            <p><a href="https://en.wikipedia.org/wiki/Roscosmos_State_Corporation" target="_blank">Continue Reading</a> </p>
+                            <a href="https://en.wikipedia.org/wiki/Roscosmos_State_Corporation" target="_blank">
+                                <img src="{{ url_for('static', filename='lib/images/russiaLogo.png') }}" class="logo-sizing">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row padding-top">
+                        <div class="col-sm-6">
+                            <h3>
+                                NASA's Data Portal
+                            </h3>
+                            <p>
+                                A continually growing catalog of publicly available NASA datasets, APIs, visualizations, and more!
+                            </p>
+                            <p>
+                                You can find open sourced data for use in projects like this one. If you're a developer be sure to
+                                check out the Dev Portal where NASA have documentation on their API's and code snippets for
+                                building apps visualizations and more.
+                            </p>
+                            <p><a href="https://data.nasa.gov" target="_blank">Continue Exploring</a></p>
+                            <a href="https://data.nasa.gov" target="_blank">
+                                <img src="{{ url_for('static', filename='lib/images/openNasaLogo.png') }}" class="logo-sizing">
+                            </a>
+                        </div>
+                        <div class="col-sm-6">
+                            <h3>Soviet Space Program</h3>
+                            <p>
+                                The Soviet space program (Russian: Космическая программа СССР, Kosmicheskaya programma SSSR) comprised
+                                the rocketry and space exploration programs conducted by the former Soviet Union (USSR) from the 1930s
+                                until its dissolution in 1991.
+                            </p>
+                            <p><a href="https://en.wikipedia.org/wiki/Soviet_space_program" target="_blank">Continue Reading</a> </p>
+                            <a href="https://en.wikipedia.org/wiki/Soviet_space_program" target="_blank">
+                                <img src="{{ url_for('static', filename='lib/images/sovietLogo.png') }}" class="logo-sizing">
+                            </a>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-sm-6">
-                    <img src="{{ url_for('static', filename='lib/images/russiaLogo.png') }}" class="logo-sizing">
-                </div>
+
             </div>
        </div>
     </div>

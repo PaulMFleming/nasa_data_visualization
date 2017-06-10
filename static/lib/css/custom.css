@@ -16,6 +16,10 @@ body.application {
    to { background-position: -50% 70px, -500px 0px, -1550px 0px;}
 }
 
+.padding-top {
+    padding-top: 15px;
+}
+
 /*
  * Space Agency Logos
  */
