@@ -2,12 +2,13 @@ queue()
     .defer(d3.json, "/nasaData/missions")
     .await(makeGraphs);
 
+
 function makeGraphs(error, missionsJson) {
     var nasaDataMissions = missionsJson;
     var dateFormat = d3.time.format("%Y-%m-%d");
     nasaDataMissions.forEach(function(d) {
-       d["Date"] = dateFormat.parse(d["Date"]);
-       d["Date"].setDate(1);
+       //d["Date"] = dateFormat.parse(d["Date"]);
+       //d["Date"].setDate(1);
        d["Country"] = +d["Country"];
     });
 
@@ -35,4 +36,21 @@ function makeGraphs(error, missionsJson) {
 
     // Define data groups
     var all = ndx.groupAll();
+    var numMissionsByCountry = countryDim.group();
+    var numMissionsByDate = dateDim.group();
+    var numMissionsByVehicle = vehicleDim.group();
+    var totalMissionsByDuration = durationDim.group();
+
+    var countryChart = dc.rowChart("#country-chart");
+
+    countryChart
+        .width(300)
+        .height(250)
+        .dimension(countryDim)
+        .group(numMissionsByCountry)
+        .xAxis().ticks(4);
+
+
+    dc.renderAll();
+
 }
