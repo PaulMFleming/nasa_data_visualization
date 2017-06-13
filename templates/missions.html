@@ -1,6 +1,12 @@
 {% extends "layout.html" %}
 {% block content %}
     <div class="container">
+        <!-- Timelapse background --
+        <video autoplay loop id="video-background" muted plays-inline preload="none">
+            <source src="{{url_for ('static', filename='lib/video/timelapse2.mp4')}}" type="video/mp4">
+        </video>
+        <!-- end Timelapse background -->
+
         <div class="col-sm-12 centered  white-box">
             <h2>MISSIONS!!!!!</h2>
             <p>******* MISSIONS TABLE GOES HERE ********</p>

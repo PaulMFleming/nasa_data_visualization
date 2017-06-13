@@ -10,8 +10,17 @@
     <link rel="stylesheet" href="{{ url_for ('static', filename='lib/css/custom.css')}}">
     <link rel="stylesheet" href="{{url_for ('static', filename='lib/css/introjs.css')}}" />
 </head>
-<body class="application" >
+<body class="application" id="animate-background">
+<!--<div>
+    <img class="planets-box" src="{{ url_for ('static', filename='lib/images/Earth-PNG.png') }}"
+</div>-->
 
+
+<!-- Timelapse background --
+        <video autoplay loop id="video-background" muted plays-inline preload="auto">
+            <source src="{{url_for ('static', filename='lib/video/ISStimelapse.mp4')}}" type="video/mp4">
+        </video>
+        <!-- end Timelapse background -->
 
     <!-- Navbar -->
 
@@ -44,6 +53,7 @@
 
     <!-- end Navbar -->
 
+    <img  href="{{ url_for ('static', filename='lib/images/bg2.png')}}">
 
 
     <!-- create container for dynamic pages -->

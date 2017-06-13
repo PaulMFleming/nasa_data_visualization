@@ -6,15 +6,40 @@ body.application {
    height: 100%;
    margin: 0px auto;
    background-color: #000;
-   background-image: url("/static/lib/images/stars1.png"), url("/static/lib/images/stars2.png");
-   background-position: 140% 70px, 0px 0px, 0px 0px;
+    color: #FFFFFF;
+    text-align: center;
+   background-image: url("/static/lib/images/bg5b.png"), url("/static/lib/images/stars2.png"), url("/static/lib/images/stars1.png");
+   background-position: 0px 0px, 140% 70px, 0px 0px;
    background-repeat: no-repeat, repeat, repeat;
    animation: animate-background linear 50s infinite;
 }
+
+
 @keyframes animate-background{
-   from { background-position: 140% 70px, 0px 0px, 0px 0px;}
-   to { background-position: -50% 70px, -500px 0px, -1550px 0px;}
+   from { background-position: 0px 0px, 40% 70px,  0px 0px;}
+   to { background-position:  0px 0px, -5% 70px, -550px 0px;}
 }
+img.planets-box {
+    height: 20%;
+    z-index: -150;
+}
+
+/*
+ * Navbar styles
+ */
+.navbar-default {
+    background-color: transparent;
+    border: none;
+}
+.navbar-default .navbar-nav>li>a {
+    color: #FFFFFF;
+}
+.navbar-default .navbar-nav>li>a:hover {
+    color: #777;
+    text-decoration: underline;
+}
+
+
 
 .padding-top {
     padding-top: 15px;
@@ -31,8 +56,8 @@ body.application {
  * Content boxes
  */
 .white-box{
-    background-color: rgba(255,255,255,0.9);
-    color: #000000;
+    /*background-color: rgba(255,255,255,0.5);*/
+    color: #FFFFFF;
     margin: 10px;
     padding-bottom: 20px;
     text-align: center;
@@ -99,4 +124,41 @@ video {
 }
 .carousel-caption>h2 {
     color: #000000;
+}
+
+/*
+ * Video background
+ */
+.fullscreen-bg {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: -100;
+}
+
+.fullscreen-bg__video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: auto;
+    height: auto;
+    min-width: 100%;
+    min-height: 100%;
+    -webkit-transform: translate(-50%, -50%);
+       -moz-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+	    transform: translate(-50%, -50%);
+}
+
+@media (max-width: 767px) {
+    .fullscreen-bg {
+        background: url('http://dev2.slicejack.com/fullscreen-video-demo/img/videoframe.jpg') center center / cover no-repeat;
+    }
+
+    .fullscreen-bg__video {
+        display: none;
+    }
 }

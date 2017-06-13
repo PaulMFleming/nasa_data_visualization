@@ -21,7 +21,7 @@ def missions():
     return render_template('missions.html')
 @app.route('/videos')
 def videos():
-    return render_template('videos.html')
+    return  render_template('videos.html')
 
 @app.route("/nasaData/missions")
 def nasa_missions():
