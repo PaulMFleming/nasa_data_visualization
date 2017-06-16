@@ -6,14 +6,35 @@
             <source src="{{url_for ('static', filename='lib/video/timelapse2.mp4')}}" type="video/mp4">
         </video>
         <!-- end Timelapse background -->
-
+        <div class='row'>
+            <div class='col-sm-6' id='dc-missions-chart'>
+            <h4>Missions by Year</h4>
+        </div>
+        <div class='col-sm-6' id='blank'>
+            <h4>Blank</h4>
+        </div>
+  </div>
         <div class="col-sm-12 centered  white-box">
             <h2>MISSIONS!!!!!</h2>
             <p>******* MISSIONS TABLE GOES HERE ********</p>
+            <table class='table table-hover' id='dc-table-graph'>
+                <thead>
+                <tr class='header'>
+                    <th>EVA#</th>
+                    <th>Country</th>
+                    <th>Crew</th>
+                    <th>Vehicle</th>
+                    <th>Date</th>
+                    <th>Duration</th>
+                    <th>Purpose</th>
+                </tr>
+                </thead>
+          </table>
              <div class="info-box">
                 <p>Data source: <a href="https://data.nasa.gov/Raw-Data/Extra-vehicular-Activity-EVA-US-and-Russia/9kcy-zwvn" target="_blank">Extra-vehicular Activity (EVA) - US and Russia</a> </p>
                 <p>To find similar Open Source Data from Nasa visit the <a href="https://data.nasa.gov" target="_blank"> Nasa Open Data Portal</a> </p>
             </div>
         </div>
     </div>
+
 {% endblock %}

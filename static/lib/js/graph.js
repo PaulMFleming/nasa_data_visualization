@@ -5,52 +5,43 @@ queue()
 
 function makeGraphs(error, missionsJson) {
     var nasaDataMissions = missionsJson;
-    var dateFormat = d3.time.format("%Y-%m-%d");
-    nasaDataMissions.forEach(function(d) {
-       //d["Date"] = dateFormat.parse(d["Date"]);
-       //d["Date"].setDate(1);
-       d["Country"] = +d["Country"];
+    var dateFormat = d3.time.format("%m-%d-%Y");
+    nasaDataMissions.forEach(function (d) {
+        d["Date"] = dateFormat.parse(d["Date"]);
     });
 
-    // create a Crossfilter instance
+    // run the data through Crossfilter and load it as 'ndx'
     var ndx = crossfilter(nasaDataMissions);
 
-    // Define data Dimensions
-    var countryDim = ndx.dimension(function(d) {
-        return d["Country"]; });
+    // Create dataTable dimension
+    var timeDimension = ndx.dimension(function (d) {
+        return d["Date"];
+    });
 
-    var dateDim = ndx.dimension(function(d) {
-        return d["Date"]; });
 
-    var vehicleDim = ndx.dimension(function(d) {
-        return d["Vehicle"]; });
+    // Create the dc.js chart object & link to div
+    var dataTable = dc.dataTable("#dc-table-graph");
 
-    var durationDim = ndx.dimension(function(d) {
-        return d["Duration"]; });
 
-    var purposeDim = ndx.dimension(function(d) {
-        return d["Purpose"]; });
+    // Define the table
+    dataTable.width(800).height(800)
+        .dimension(timeDimension)
+        .group(function (d) { return "Missions Table"})
+        .size(50)
+        .columns([
+            function(d) {return d["EVA#"]},
+            function(d) {return d["Date"]},
+            function(d) {return d["Country"]},
+            function(d) {return d["Crew"]},
+            function(d) {return d["Vehicle"]},
+            function(d) {return d["Duration"]},
+            function(d) {return d["Purpose"]}
 
-    var crewDim = ndx.dimension(function(d) {
-        return d["Crew"]; });
-
-    // Define data groups
-    var all = ndx.groupAll();
-    var numMissionsByCountry = countryDim.group();
-    var numMissionsByDate = dateDim.group();
-    var numMissionsByVehicle = vehicleDim.group();
-    var totalMissionsByDuration = durationDim.group();
-
-    var countryChart = dc.rowChart("#country-chart");
-
-    countryChart
-        .width(300)
-        .height(250)
-        .dimension(countryDim)
-        .group(numMissionsByCountry)
-        .xAxis().ticks(4);
-
+        ])
+        .sortBy(function (d) {
+            return d["Date"]
+        })
+        .order(d3.ascending);
 
     dc.renderAll();
-
 }
