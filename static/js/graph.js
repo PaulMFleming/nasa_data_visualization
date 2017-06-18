@@ -6,6 +6,7 @@ queue()
 function makeGraphs(error, missionsJson) {
     var nasaDataMissions = missionsJson;
     var dateFormat = d3.time.format("%m-%d-%Y");
+    
     nasaDataMissions.forEach(function (d) {
         d["Date"] = dateFormat.parse(d["Date"]);
     });
