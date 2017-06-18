@@ -5,7 +5,7 @@ queue()
 
 function makeGraphs(error, missionsJson) {
     var nasaDataMissions = missionsJson;
-    var dateFormat = d3.time.format("%m-%d-%Y");
+    var dateFormat = d3.time.format("%m/%d/%Y");
     
     nasaDataMissions.forEach(function (d) {
         d["Date"] = dateFormat.parse(d["Date"]);
@@ -27,14 +27,14 @@ function makeGraphs(error, missionsJson) {
     // Define the table
     dataTable.width(800).height(800)
         .dimension(timeDimension)
-        .group(function (d) { return "Missions Table"})
+        .group(function (d) { return ""})
         .size(50)
         .columns([
             function(d) {return d["EVA#"]},
-            function(d) {return d["Date"]},
             function(d) {return d["Country"]},
             function(d) {return d["Crew"]},
             function(d) {return d["Vehicle"]},
+            function(d) {return d["Date"]},
             function(d) {return d["Duration"]},
             function(d) {return d["Purpose"]}
 
@@ -45,4 +45,5 @@ function makeGraphs(error, missionsJson) {
         .order(d3.ascending);
 
     dc.renderAll();
+
 }
