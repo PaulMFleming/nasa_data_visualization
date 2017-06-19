@@ -34,23 +34,41 @@ function makeGraphs(error, missionsJson) {
 
     // Create the dc.js chart object & link to div
     var dataTable = dc.dataTable("#dc-table-graph");
-    var missionsByCountryChart = dc.barChart("#dc-missions-by-country-chart");
-    var missionsByVehicleChart = dc.barChart("#dc-vehicle-chart");
+    var missionsByCountryChart = dc.pieChart("#dc-missions-by-country-chart");
+    var missionsByVehicleChart = dc.pieChart("#dc-vehicle-chart");
 
     var all = ndx.groupAll();
 
-    // Define the bar chart
+
+
+    // Define the charts
     missionsByCountryChart
         .width(500)
         .height(300)
-        .margins({top: 10, right: 50, bottom: 50, left: 30})
+        .slicesCap(100)
+        .innerRadius(10)
         .dimension(countryDimension)
         .group(numMissionsByCountry)
-        .transitionDuration(500)
-        .x(d3.time.scale().domain([0, 100]))
-        .elasticY(true)
-        .xAxisLabel("Country")
-        .yAxis().ticks(4);
+        .renderLabel(true)
+        .label(function (d) {
+            console.log('label');
+            console.log(d)
+            return d.key.toUpperCase();
+        });
+
+    missionsByVehicleChart
+        .width(500)
+        .height(300)
+        .slicesCap(100)
+        .innerRadius(10)
+        .dimension(vehicleDimension)
+        .group(totalVehicles)
+        .renderLabel(true)
+        .label(function (d) {
+            console.log('label');
+            console.log(d)
+            return d.key.toUpperCase();
+        });
 
 
     // Define the table
