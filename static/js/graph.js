@@ -9,6 +9,7 @@ function makeGraphs(error, missionsJson) {
     
     nasaDataMissions.forEach(function (d) {
         d["Date"] = dateFormat.parse(d["Date"]);
+        d["EVA#"] = parseInt(d["EVA#"]);
     });
 
     // run the data through Crossfilter and load it as 'ndx'
@@ -18,10 +19,38 @@ function makeGraphs(error, missionsJson) {
     var timeDimension = ndx.dimension(function (d) {
         return d["Date"];
     });
+    var countryDimension = ndx.dimension(function (d) {
+        return d["Country"];
+    });
+    var vehicleDimension = ndx.dimension(function (d) {
+        return d["Vehicle"];
+    });
+
+
+    // Calculate metrics
+    var numMissionsByCountry = countryDimension.group();
+    var totalVehicles = vehicleDimension.group();
 
 
     // Create the dc.js chart object & link to div
     var dataTable = dc.dataTable("#dc-table-graph");
+    var missionsByCountryChart = dc.barChart("#dc-missions-by-country-chart");
+    var missionsByVehicleChart = dc.barChart("#dc-vehicle-chart");
+
+    var all = ndx.groupAll();
+
+    // Define the bar chart
+    missionsByCountryChart
+        .width(500)
+        .height(300)
+        .margins({top: 10, right: 50, bottom: 50, left: 30})
+        .dimension(countryDimension)
+        .group(numMissionsByCountry)
+        .transitionDuration(500)
+        .x(d3.time.scale().domain([0, 100]))
+        .elasticY(true)
+        .xAxisLabel("Country")
+        .yAxis().ticks(4);
 
 
     // Define the table
@@ -40,7 +69,7 @@ function makeGraphs(error, missionsJson) {
 
         ])
         .sortBy(function (d) {
-            return d["Date"]
+            return d["EVA#"]
         })
         .order(d3.ascending);
 
