@@ -1,30 +1,36 @@
 {% extends "layout.html" %}
 {% block content %}
     <div class="container">
-        <!-- Timelapse background --
-        <video autoplay loop id="video-background" muted plays-inline preload="none">
-            <source src="{{url_for ('static', filename='lib/video/timelapse2.mp4')}}" type="video/mp4">
-        </video>
-        <!-- end Timelapse background -->
+        <div class="row">
+            <div class="col-sm-4 dc-data-count dc-chart" id="row-selection">
+                <span class="filter-count">_</span> selected out of <span class="total-count">_</span> records |
+                <span>
+                    <a href='javascript:dc.filterAll();dc.redrawAll();'><font color="#33CC99">Reset All</font></a>
+                </span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12" id="dc-total-missions-by-country-chart"></div>
+        </div>
         <div class='row'>
             <div class='col-sm-6' id='dc-missions-by-country-chart'>
                 <h4>Total Missions by Country</h4>
                 <div id="dc-total-missions-box"></div>
             </div>
-        <div class='col-sm-6' id='dc-vehicle-chart'>
-            <h4>Vehicles worked on in EVAs</h4>
+            <div class='col-sm-6' id='dc-vehicle-chart'>
+                <h4>Space Programs</h4>
+            </div>
         </div>
-  </div>
         <div class="col-sm-12 centered  white-box">
             <h2>MISSIONS!!!!!</h2>
-            <p>******* MISSIONS TABLE GOES HERE ********</p>
             <table class='table table-hover' id='dc-table-graph'>
                 <thead>
                 <tr class='header'>
                     <th>EVA#</th>
                     <th>Country</th>
                     <th>Crew</th>
-                    <th>Vehicle</th>
+                    <th>Space Program</th>
+                    <th>Mission</th>
                     <th>Date</th>
                     <th>Duration</th>
                     <th>Purpose</th>

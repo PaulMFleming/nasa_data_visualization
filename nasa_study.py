@@ -32,8 +32,8 @@ def nasa_missions():
 
     # A constant that defines the record fields we wish to retrieve.
     FIELDS = {
-        '_id' : False, 'EVA#' : True, 'Country' : True,
-        'Crew' : True, 'Vehicle' : True, 'Date' : True, 
+        '_id' : False, 'EVA #' : True, 'Country' : True,
+        'Crew' : True, 'Vehicle' : True, 'Model #' : True, 'Date' : True,
         'Duration' : True, 'Purpose' : True
     }
 
