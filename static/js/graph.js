@@ -6,18 +6,21 @@ queue()
 function makeGraphs(error, missionsJson) {
     var nasaDataMissions = missionsJson;
     var dateFormat = d3.time.format("%m/%d/%Y");
+    var durationFormat = d3.time.format("%h/%m");
 
 
     nasaDataMissions.forEach(function (d) {
         d["Date"] = dateFormat.parse(d["Date"]);
         d["EVA #"] = parseInt(d["EVA #"]);
+        d["Duration"] = durationFormat.parse(d["Duration"]);
+        d["Date"] = d["Date"].getFullYear();
 
     });
 
     // run the data through Crossfilter and load it as 'ndx'
     var ndx = crossfilter(nasaDataMissions);
 
-    // Create dataTable dimension
+    // Create dimensions to bind data to crossfilter
     var dateDimension = ndx.dimension(function (d) {
         return d["Date"];
     });
@@ -29,7 +32,10 @@ function makeGraphs(error, missionsJson) {
     });
     var crewDimension = ndx.dimension(function (d) {
         return d["Crew"];
-    })
+    });
+    var durationDimension = ndx.dimension(function (d) {
+        return d["Duration"];
+    });
 
     var all = ndx.groupAll();
 
@@ -37,15 +43,17 @@ function makeGraphs(error, missionsJson) {
     var countryGroup = countryDimension.group();
     var vehiclesGroup = vehicleDimension.group();
     var dateGroup = dateDimension.group();
-
-
+    var durationGroup = durationDimension.group();
+    var totalDurationByCountry = countryDimension.group().reduceSum(function (d) {
+        return d["Duration"];
+    });
 
 
     // Create the dc.js chart object & link to div
     var dataTable = dc.dataTable("#dc-table-graph");
     var missionsByCountryChart = dc.pieChart("#dc-missions-by-country-chart");
     var missionsByVehicleChart = dc.rowChart("#dc-vehicle-chart");
-    var totalMissionsByCountryChart = dc.lineChart("dc-total-missions-by-country-chart");
+    var durationChart = dc.lineChart("#dc-duration-chart");
 
 
     //Define values (to be used in charts)
@@ -53,28 +61,28 @@ function makeGraphs(error, missionsJson) {
     var maxDate = dateDimension.top(1)[0]["Date"];
 
 
-
-    // Define the charts
-
+    // Define Current selection indicator
     dc.dataCount("#row-selection")
         .dimension(ndx)
         .group(all);
 
-    totalMissionsByCountryChart
-        .width(600)
-        .height(220)
-        .margins({top: 10, right: 50, bottom: 30, left: 50})
-        .dimension(dateDimension)
-        .group(dateGroup)
-        .renderArea(true)
-        .transitionDuration(500)
-        .x(d3.time.scale().domain([minDate, maxDate]))
-        .elasticY(true)
-        .renderHorizontalGridLines(true)
-        .renderVerticalGridLines(true)
-        .xAxisLabel("Year")
-        .yAxis().ticks(6);
+    // Define Duration Chart
+    durationChart
+        .width(500).height(200)
+            .dimension(dateDimension)
+            .group(dateGroup)
+            .x(d3.time.scale().domain([minDate,maxDate]))
+            .renderArea(true)
+            .brushOn(true)
+            .legend(dc.legend().x(450).y(10).itemHeight(13).gap(5))
+            .yAxisLabel("Hits per day");
 
+    // create dimension on year and set up yearly totals
+    var yearDim = ndx.dimension(function(d) {return +d.Year;});
+    var year_total = yearDim.group().reduceSum(function(d) {return d.total;});
+
+
+    // Define Mission by country Pie chart
     missionsByCountryChart
         .width(500)
         .height(300)
@@ -89,7 +97,7 @@ function makeGraphs(error, missionsJson) {
             return d.key.toUpperCase();
         });
 
-
+    // Define Space Programs Row Chart
     missionsByVehicleChart
         .width(350)
         .height(350)
