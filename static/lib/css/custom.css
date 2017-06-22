@@ -127,38 +127,36 @@ video {
 }
 
 /*
- * Video background
+ * Override keen-dashboards.css with custom style
  */
-.fullscreen-bg {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    overflow: hidden;
-    z-index: -100;
+.chart-wrapper {
+    background: transparent;
+    border: none;
+}
+.chart-wrapper .chart-title{
+    color: #FFFFFF; !important;
+}
+.chart-wrapper .chart-notes {
+    background: transparent;
+   color: #FFFFFF; !important;
 }
 
-.fullscreen-bg__video {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: auto;
-    height: auto;
-    min-width: 100%;
-    min-height: 100%;
-    -webkit-transform: translate(-50%, -50%);
-       -moz-transform: translate(-50%, -50%);
-        -ms-transform: translate(-50%, -50%);
-	    transform: translate(-50%, -50%);
+.dc-chart g.row text {
+    fill: white;
 }
 
-@media (max-width: 767px) {
-    .fullscreen-bg {
-        background: url('http://dev2.slicejack.com/fullscreen-video-demo/img/videoframe.jpg') center center / cover no-repeat;
-    }
+.dc-chart .axis text {
+    fill: white;
+}
+.dc-chart text.x-axis-label {
+    fill: white;
+}
 
-    .fullscreen-bg__video {
-        display: none;
-    }
+.table-hover>tbody>tr:hover>td, .table-hover>tbody>tr:hover>th {
+    background-color: transparent;
+}
+
+
+#dc-year-row-chart>h2{
+    padding-bottom: 10px;
 }
