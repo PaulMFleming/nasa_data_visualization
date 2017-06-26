@@ -47,6 +47,7 @@ function makeGraphs(error, missionsJson) {
     var dateGroup = dateDimension.group();
     var crewGroup = crewDimension.group();
     var durationGroup = yearDimension.group().reduceSum(function (d) {return d["Hours"];});
+    var totalDurationGroup = durationDimension.group().reduceSum(function(d) {return d["Hours"];});
     var all = ndx.groupAll();
 
 
@@ -65,6 +66,7 @@ function makeGraphs(error, missionsJson) {
     //Define values (to be used in charts)
     var minDate = dateDimension.bottom(1)[0]["Date"];
     var maxDate = dateDimension.top(1)[0]["Date"];
+    var average = function(d) {return d.n ? d.tot / d.n : 0;};
 
 
 
@@ -76,9 +78,10 @@ function makeGraphs(error, missionsJson) {
 
     // Define Total Hours Spacewalking
     totalSpacewalk
-        .formatNumber(d3.format("d"))
-        .valueAccessor(function(d){return d;})
-        .group(durationGroup)
+        .valueAccessor(function(d){return +d["Hours"];})
+        .group(totalDurationGroup)
+        .formatNumber(d3.format("d"));
+
 
     // Define Current selection indicator
     dc.dataCount("#row-selection")
@@ -87,14 +90,14 @@ function makeGraphs(error, missionsJson) {
 
     // Define TimeLine Chart
     timelineChart
-        .width(700).height(300)
+        .width(800).height(200)
             .dimension(dateDimension)
             .group(dateGroup)
             .x(d3.time.scale().domain([minDate,maxDate]))
             .renderArea(true)
             .brushOn(true)
             .legend(dc.legend().x(450).y(10).itemHeight(13).gap(5))
-            .yAxisLabel("Missions per Year")
+            .yAxisLabel("Number of Missions")
             .elasticY(true)
             .renderHorizontalGridLines(true)
             .renderVerticalGridLines(true)
@@ -113,15 +116,15 @@ function makeGraphs(error, missionsJson) {
     // Define year row chart
     yearRowChart
         .width(300)
-        .height(900)
+        .height(600)
         .dimension(yearDimension)
         .group(year_total)
         .xAxis().ticks(6);
 
     // Define Mission by country Pie chart
     missionsByCountryChart
-        .width(250)
-        .height(250)
+        .width(200)
+        .height(200)
         .slicesCap(100)
         .innerRadius(10)
         .dimension(countryDimension)
@@ -137,7 +140,7 @@ function makeGraphs(error, missionsJson) {
     // Define Space Programs Row Chart
     missionsByVehicleChart
         .width(300)
-        .height(300)
+        .height(200)
         .dimension(vehicleDimension)
         .group(vehiclesGroup)
         .xAxis().ticks(6);
@@ -145,7 +148,7 @@ function makeGraphs(error, missionsJson) {
     // Define the Durations Chart
     longestSpacewalksChart
         .width(800)
-        .height(300)
+        .height(200)
         .margins({top: 10, right: 50, bottom: 30, left: 50})
         .dimension(durationDimension)
         .group(durationGroup)
@@ -153,9 +156,10 @@ function makeGraphs(error, missionsJson) {
         .x(d3.time.scale().domain([minDate, maxDate]))
         .elasticY(true)
         .xAxisLabel("Year")
-        .yAxisLabel("Hours")
+        .yAxisLabel("Number of Hours")
         .renderHorizontalGridLines(true)
         .renderVerticalGridLines(true)
+        .brushOn(false)
         .yAxis().ticks(4);
 
 
@@ -163,7 +167,7 @@ function makeGraphs(error, missionsJson) {
     dataTable.width(800).height(800)
         .dimension(dateDimension)
         .group(function (d) { return ""})
-        .size(50)
+        .size(375)
         .columns([
             function(d) {return d["EVA #"]},
             function(d) {return d["Country"]},

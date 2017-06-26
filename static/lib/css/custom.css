@@ -141,16 +141,12 @@ video {
    color: #FFFFFF; !important;
 }
 
-.dc-chart g.row text {
+.dc-chart g.row text, .dc-chart .axis text, .dc-chart text.x-axis-label,
+.dc-chart g.dc-legend-item text, .dc-chart text.y-axis-label {
     fill: white;
 }
 
-.dc-chart .axis text {
-    fill: white;
-}
-.dc-chart text.x-axis-label {
-    fill: white;
-}
+
 
 .table-hover>tbody>tr:hover>td, .table-hover>tbody>tr:hover>th {
     background-color: transparent;
@@ -159,4 +155,16 @@ video {
 
 #dc-year-row-chart>h2{
     padding-bottom: 10px;
+}
+
+#fixed-position-box {
+    position: fixed;
+}
+
+#dc-year-row-chart {
+    position: absolute;
+}
+#dc-year-row-chart>h2 {
+    text-align: left;
+    margin-left: 30px;
 }

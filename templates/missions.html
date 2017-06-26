@@ -1,20 +1,47 @@
 {% extends "layout.html" %}
 {% block content %}
     <div class="container-fluid">
+        <div class="row">
 
-    <div class="col-sm-12">
+            <!-- Year Row Chart -->
+            <div id="fixed-position-box" class="col-sm-2">
+                <div class="chart-wrapper" id="dc-year-row-chart">
+                    <h2>Select a year</h2>
+                    <div class="dc-data-count dc-chart" id="row-selection">
+                        <span class="filter-count">_</span> of <span class="total-count">_</span> selected |
+                        <span>
+                             <a href='javascript:dc.filterAll();dc.redrawAll();'><font color="#33CC99">Reset All</font></a>
+                         </span>
+                     </div>
+                </div>
+            </div>
+            <!-- end Year Row Chart -->
+
+
+    <div class="col-sm-10 col-sm-offset-2" id="scrollable-position">
      <div class="row">
       <div class="col-sm-8">
         <div class="chart-wrapper">
           <div class="chart-title">
-            Missions Timeline
+              <h2>Missions Timeline</h2>
+              <div class="dc-data-count dc-chart" id="row-selection">
+
+              </div>
+
+              <span>
+                <a class="reset"
+                href="javascript:magnitudeChart.filterAll();dc.redrawAll();"
+                style="display: none;">
+                reset
+                </a>
+              </span>
           </div>
           <div class="chart-stage">
             <div id="grid-1-1">
                 <div id="dc-duration-chart"></div>
-                 <div id="chart-ring-year">
+                 <!--<div id="chart-ring-year">
                      <h4>Choose a year</h4>
-                 </div>
+                 </div>-->
             </div>
           </div>
           <div class="chart-notes">
@@ -25,15 +52,13 @@
       <div class="col-sm-4">
         <div class="chart-wrapper">
           <div class="chart-title">
-            Heading
+            <h2>Country</h2>
           </div>
           <div class="chart-stage">
-              <div id='dc-missions-by-country-chart'>
-                  <h4>Country</h4>
-              </div>
-               <div class="col-sm-4 chart-wrapper" id="total-missions">
+              <div id='dc-missions-by-country-chart'></div>
+              <!--<div class="col-sm-4 chart-wrapper" id="total-missions">
                     <div class="chart-title">  <h2> Total Missions Count </h2></div>
-               </div>
+               </div>-->
           </div>
           <div class="chart-notes">
             Notes about this chart
@@ -46,13 +71,13 @@
         <div class="col-sm-6 col-md-8">
         <div class="chart-wrapper">
           <div class="chart-title">
-              Spacewalk Durations
+              <h2>Spacewalk Durations</h2>
           </div>
           <div class="chart-stage">
             <div id="dc-longest-spacewalk-chart"></div>
-              <div id="dc-total-spacewalk">
+              <!-- <div id="dc-total-spacewalk">
                     <div class="chart-title">  <h2> Total Time Spacewalking </h2></div>
-               </div>
+               </div> -->
           </div>
           <div class="chart-notes">
             Notes about this chart
@@ -62,7 +87,7 @@
       <div class="col-sm-6 col-md-4">
         <div class="chart-wrapper">
           <div class="chart-title">
-            Space Program
+              <h2>Space Program</h2>
           </div>
           <div class="chart-stage">
             <div class='col-sm-6' id='dc-vehicle-chart'></div>
@@ -74,16 +99,8 @@
       </div>
     </div>
         <div class="row col-sm-12 centered  white-box">
-            <div class="col-sm-2 chart-wrapper" id="dc-year-row-chart">
-                <h2>Select a year</h2>
-                 <div class="dc-data-count dc-chart" id="row-selection">
-                     <span class="filter-count">_</span> of <span class="total-count">_</span> selected |
-                     <span>
-                         <a href='javascript:dc.filterAll();dc.redrawAll();'><font color="#33CC99">Reset All</font></a>
-                     </span>
-                 </div>
-            </div>
-            <div class="col-sm-10">
+
+            <div class="white-border">
             <h2>MISSIONS!!!!!</h2>
             <table class='table table-hover' id='dc-table-graph'>
                 <thead>
@@ -106,7 +123,8 @@
             </div>
         </div>
         </div>
-    </div>
 
+        </div>
+    </div>
 
 {% endblock %}
