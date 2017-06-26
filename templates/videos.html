@@ -2,6 +2,51 @@
 {% block content %}
     <div class="container">
         <div class="col-sm-12 centered  white-box">
+             <!-- Carousel -->
+        <div class="col-sm-12">
+            <h2>Cool Photos Taken On Spacewalks!</h2>
+            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                    <li data-target="#myCarousel" data-slide-to="3"></li>
+                    <li data-target="#myCarousel" data-slide-to="4"></li>
+                    <li data-target="#myCarousel" data-slide-to="5"></li>
+                </ol>
+
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner">
+
+                    <div class="item active">
+                        <img src="{{ url_for('static', filename='lib/images/spacewalk1.jpg') }}" alt="Spacewalk Image">
+                    </div>
+
+                    <div class="item">
+                        <img src="{{ url_for('static', filename='lib/images/spacewalk2.jpg') }}" alt="Spacewalk Image">
+                    </div>
+
+                    <div class="item">
+                        <img src="{{ url_for('static', filename='lib/images/spacewalk3.jpg') }}" alt="New York">
+                    </div>
+
+                    <div class="item">
+                        <img src="{{ url_for('static', filename='lib/images/spacewalk4.jpg') }}" alt="Spacewalk Image">
+                    </div>
+
+                    <div class="item">
+                        <img src="{{ url_for('static', filename='lib/images/spacewalk5.jpg') }}" alt="Spacewalk Image">
+                    </div>
+
+                    <div class="item">
+                        <img src="{{ url_for('static', filename='lib/images/spacewalk6.jpg') }}" alt="Spacewalk Image">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end Carousel -->
+
            <h2>Suit Up</h2>
 
            <video controls poster="{{ url_for ('static', filename='lib/images/suitupPoster.jpg')}}">
