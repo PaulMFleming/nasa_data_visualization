@@ -12,13 +12,10 @@ COLLECTION_NAME = 'missions'
 
 @app.route('/')
 def home():
-    return render_template('home.html')
+    return render_template('missions.html')
 @app.route('/about')
 def about():
     return render_template('about.html')
-@app.route('/missions')
-def missions():
-    return render_template('missions.html')
 @app.route('/videos')
 def videos():
     return  render_template('videos.html')
