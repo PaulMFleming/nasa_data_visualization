@@ -2,16 +2,16 @@
  * Animated background
  */
 body.application {
-   width: 100%;
-   height: 100%;
-   margin: 0px auto;
-   background-color: #000;
+    width: 100%;
+    height: 100%;
+    margin: 0px auto;
+    background-color: #000;
     color: #FFFFFF;
     text-align: center;
-   background-image: url("/static/lib/images/bg5b.png"), url("/static/lib/images/stars2.png"), url("/static/lib/images/stars1.png");
-   background-position: 0px 0px, 140% 70px, 0px 0px;
-   background-repeat: no-repeat, repeat, repeat;
-   animation: animate-background linear 50s infinite;
+    background-image: url("/static/lib/images/bg5b.png"), url("/static/lib/images/stars2.png"), url("/static/lib/images/stars1.png");
+    background-position: 0px 0px, 140% 70px, 0px 0px;
+    background-repeat: no-repeat, repeat, repeat;
+    animation: animate-background linear 50s infinite;
 }
 
 
@@ -28,17 +28,28 @@ img.planets-box {
  * Navbar styles
  */
 .navbar-default {
-    background-color: transparent;
+    background-color: rgba(255,255,255,0.6);
+    background-image: url("/static/lib/images/stars1.png");
     border: none;
+    font-size: 1.25em;
+    font-weight: bold;
 }
 .navbar-default .navbar-nav>li>a {
-    color: #FFFFFF;
+    color: #000;
 }
 .navbar-default .navbar-nav>li>a:hover {
     color: #777;
     text-decoration: underline;
 }
-
+.navbar-brand>a {
+    color: #000000;
+}
+.navbar-default .navbar-nav>li>a:hover {
+    color: #FFFFFF;
+}
+.navbar-default .navbar-nav>li>a:active {
+    text-decoration: underline;
+}
 
 
 .padding-top {
@@ -96,10 +107,9 @@ img.planets-box {
 /*
  * make videos responsive
 */
-video {
-    width: 50%;     !important
-    height: auto;   !important
-    padding-bottom: 15px;
+iframe {
+    padding-bottom: 25px;
+    padding-top: 15px;
 }
 
 /*

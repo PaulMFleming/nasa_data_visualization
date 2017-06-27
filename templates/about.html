@@ -1,83 +1,224 @@
 {% extends "layout.html" %}
 {% block content %}
     <div class="container">
-        <div class="col-sm-12 centered  white-box">
-           <h2>About</h2>
-           <div class="info-box">
-               <ul>
-                   <h4></h4>
-                   <h4>I created this website as a study of Extra-vehicular Activities using all open source tools.
+        <!-- About Section -->
+        <div class="col-sm-12 centered  white-box chart-wrapper">
+            <div class="chart-title">
+                <h2>About</h2>
+            </div>
+            <div class="col-sm-6 col-sm-offset-3">
+                <h4 class="padding-top">I created this website as a study of Extra-vehicular Activities using all open source tools.
                        The data in the dataset used on this site was last updated on April 7, 2015, so any EVAs after
-                       that date aren't included on this site unfortunately.</h4>
-                   <h4>All links have been provided to the source material of the relevant data, videos and images.
-                   You can check out the code for this site on my Github <a href="#" target="_blank">here.</a> </h4>
-               </ul>
+                       that date aren't included on this site unfortunately.
+                </h4>
+                <h4 class="padding-top">All links have been provided to the source material of the relevant data, videos and images.
+                   You can check out the code for this site on my Github <a href="#" target="_blank">here.</a>
+                </h4>
            </div>
         </div>
-        <div class="col-sm-12 centered white-box">
-            <h2>Further Exploration</h2>
-            <div class="col-sm-12">
-                <div class="info-box">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <h3>NASA</h3>
-                            <p>
-                                The National Aeronautics and Space Administration (NASA /ˈnæsə/) is an independent
-                                agency of the executive branch of the United States federal government responsible
-                                for the civilian space program, as well as aeronautics and aerospace research
-                            </p>
-                            <p><a href="https://en.wikipedia.org/wiki/NASA" target="_blank">Continue Reading</a> </p>
-                            <a href="https://en.wikipedia.org/wiki/NASA" target="_blank">
-                                <img src="{{ url_for('static', filename='lib/images/nasaLogo.png') }}" class="logo-sizing">
-                            </a>
-                        </div>
-                        <div class="col-sm-6">
-                            <h3>Roscosmos State Corporation</h3>
-                            <p>
-                                The Roscosmos State Corporation for Space Activities (Russian: Государственная корпорация
-                                по космической деятельности «Роскосмос»), commonly known as Roscosmos (Russian: Роскосмос),
-                                is the governmental body responsible for the space science program of Russia and general aerospace research.
-                            </p>
-                            <p><a href="https://en.wikipedia.org/wiki/Roscosmos_State_Corporation" target="_blank">Continue Reading</a> </p>
-                            <a href="https://en.wikipedia.org/wiki/Roscosmos_State_Corporation" target="_blank">
-                                <img src="{{ url_for('static', filename='lib/images/russiaLogo.png') }}" class="logo-sizing">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="row padding-top">
-                        <div class="col-sm-6">
-                            <h3>
-                                NASA's Data Portal
-                            </h3>
-                            <p>
-                                A continually growing catalog of publicly available NASA datasets, APIs, visualizations, and more!
-                            </p>
-                            <p>
-                                You can find open sourced data for use in projects like this one. If you're a developer be sure to
-                                check out the Dev Portal where NASA have documentation on their API's and code snippets for
-                                building apps visualizations and more.
-                            </p>
-                            <p><a href="https://data.nasa.gov" target="_blank">Continue Exploring</a></p>
-                            <a href="https://data.nasa.gov" target="_blank">
-                                <img src="{{ url_for('static', filename='lib/images/openNasaLogo.png') }}" class="logo-sizing">
-                            </a>
-                        </div>
-                        <div class="col-sm-6">
-                            <h3>Soviet Space Program</h3>
-                            <p>
-                                The Soviet space program (Russian: Космическая программа СССР, Kosmicheskaya programma SSSR) comprised
-                                the rocketry and space exploration programs conducted by the former Soviet Union (USSR) from the 1930s
-                                until its dissolution in 1991.
-                            </p>
-                            <p><a href="https://en.wikipedia.org/wiki/Soviet_space_program" target="_blank">Continue Reading</a> </p>
-                            <a href="https://en.wikipedia.org/wiki/Soviet_space_program" target="_blank">
-                                <img src="{{ url_for('static', filename='lib/images/sovietLogo.png') }}" class="logo-sizing">
-                            </a>
-                        </div>
-                    </div>
-                </div>
+        <!-- end About Section -->
+
+        <!-- Further Exploration Section -->
+        <div class="col-sm-12 centered white-box chart-wrapper">
+
+            <div class="chart-title">
+                <h2>Further Exploration</h2>
+            </div>
+            <!-- First Row -->
+            <div class="row">
+            <div class="col-md-4 col-sm-12">
+                <div class="chart-title"><h3>NASA</h3></div>
+                <a href="https://en.wikipedia.org/wiki/NASA" target="_blank">
+                    <img src="{{ url_for('static', filename='lib/images/nasaLogo.png') }}" class="logo-sizing">
+                </a>
+                <p>
+                    The National Aeronautics and Space Administration (NASA /ˈnæsə/) is an independent
+                    agency of the executive branch of the United States federal government responsible
+                    for the civilian space program, as well as aeronautics and aerospace research
+                </p>
+                <p><a href="https://en.wikipedia.org/wiki/NASA" target="_blank">Continue Reading  on Wikipedia</a> </p>
+            </div>
+
+            <div class="col-md-4 col-sm-12">
+                <div class="chart-title"><h3>Roscosoms State Corporation</h3></div>
+                <a href="https://en.wikipedia.org/wiki/Roscosmos_State_Corporation" target="_blank">
+                    <img src="{{ url_for('static', filename='lib/images/russiaLogo.png') }}" class="logo-sizing">
+                </a>
+                <p>
+                    The Roscosmos State Corporation for Space Activities (Russian: Государственная корпорация
+                    по космической деятельности «Роскосмос»), commonly known as Roscosmos (Russian: Роскосмос),
+                    is the governmental body responsible for the space science program of Russia and general aerospace research.
+                </p>
+                <p><a href="https://en.wikipedia.org/wiki/Roscosmos_State_Corporation" target="_blank">Continue Reading  on Wikipedia</a> </p>
+            </div>
+
+            <div class="col-md-4 col-sm-12">
+                <div class="chart-title"><h3>NASA's Data Portal</h3></div>
+                <a href="https://data.nasa.gov" target="_blank">
+                    <img src="{{ url_for('static', filename='lib/images/openNasaLogo.png') }}" class="logo-sizing">
+                </a>
+                <p>
+                    A continually growing catalog of publicly available NASA datasets, APIs, visualizations, and more!
+                </p>
+                <p>
+                    You can find open sourced data for use in projects like this one. If you're a developer be sure to
+                    check out the Dev Portal where NASA have documentation on their API's and code snippets for
+                    building apps visualizations and more.
+                </p>
+                <p><a href="https://data.nasa.gov" target="_blank">Continue Exploring</a></p>
+            </div>
+            </div>
+            <!-- end First Row -->
+
+            <!-- Second Row -->
+            <div class="row">
+            <div class="col-md-4 col-sm-12">
+                 <div class="chart-title"><h3>USSR Space Program</h3></div>
+                <a href="https://en.wikipedia.org/wiki/Soviet_space_program" target="_blank">
+                    <img src="{{ url_for('static', filename='lib/images/sovietLogo.png') }}" class="logo-sizing">
+                </a>
+                <p>
+                    The Soviet space program (Russian: Космическая программа СССР, Kosmicheskaya programma SSSR) comprised
+                    the rocketry and space exploration programs conducted by the former Soviet Union (USSR) from the 1930s
+                    until its dissolution in 1991.
+                </p>
+                <p><a href="https://en.wikipedia.org/wiki/Soviet_space_program" target="_blank">Continue Reading  on Wikipedia</a> </p>
+            </div>
+
+            <div class="col-md-4 col-sm-12">
+                 <div class="chart-title"><h3>Space Transportation System</h3></div>
+                <a href="https://en.wikipedia.org/wiki/Space_Shuttle_program" target="_blank">
+                    <img src="{{ url_for('static', filename='lib/images/STS.png') }}" class="logo-sizing">
+                </a>
+                <p>
+                    The Space Shuttle program, officially called the Space Transportation System (STS), was the United
+                    States government's manned launch vehicle program from 1981 to 2011, administered by NASA and officially
+                    beginning in 1972. The Space Shuttle system—composed of an orbiter launched with two reusable solid
+                    rocket boosters and a disposable external fuel tank— carried up to eight astronauts and up to 50,000 lb
+                    (23,000 kg) of payload into low Earth orbit (LEO). When its mission was complete, the orbiter would re-enter
+                    the Earth's atmosphere and land like a glider at either the Kennedy Space Center or Edwards Air Force Base.
+                </p>
+                <p><a href="https://en.wikipedia.org/wiki/Space_Shuttle_program" target="_blank">Continue Reading  on Wikipedia</a> </p>
+            </div>
+
+            <div class="col-md-4 col-sm-12">
+                 <div class="chart-title"><h3>Mir Space Station</h3></div>
+                <a href="https://en.wikipedia.org/wiki/Mir" target="_blank">
+                    <img src="{{ url_for('static', filename='lib/images/mir.png') }}" class="logo-sizing">
+                </a>
+                <p>
+                    Mir (Russian: Мир, IPA: [ˈmʲir]; lit. peace or world) was a space station that operated in low Earth orbit
+                    from 1986 to 2001, operated by the Soviet Union and later by Russia. Mir was the first modular space
+                    station and was assembled in orbit from 1986 to 1996. It had a greater mass than any previous spacecraft.
+                    At the time it was the largest artificial satellite in orbit, succeeded by the International Space Station after Mir's orbit decayed.
+                    The station served as a microgravity research laboratory in which crews conducted experiments in biology, human biology, physics,
+                    astronomy, meteorology and spacecraft systems with a goal of developing technologies required for permanent occupation of space.
+                </p>
+                <p><a href="https://en.wikipedia.org/wiki/Mir" target="_blank">Continue Reading  on Wikipedia</a> </p>
+            </div>
+            </div>
+            <!-- end Second Row -->
+
+            <!-- Third Row -->
+            <div class="row">
+            <div class="col-md-4 col-sm-12">
+                 <div class="chart-title"><h3>Project Gemini</h3></div>
+                <a href="https://en.wikipedia.org/wiki/Project_Gemini" target="_blank">
+                    <img src="{{ url_for('static', filename='lib/images/gemini.png') }}" class="logo-sizing">
+                </a>
+                <p>
+                    The International Space Station (ISS) is a space station, or a habitable artificial satellite, in low Earth
+                    orbit. Its first component launched into orbit in 1998, and the ISS is now the largest man-made body in low
+                    Earth orbit and can often be seen with the naked eye from Earth.[9][10] The ISS consists of pressurised modules,
+                    external trusses, solar arrays, and other components. ISS components have been launched by Russian Proton and
+                    Soyuz rockets, and American Space Shuttles.
+                </p>
+                <p><a href="https://en.wikipedia.org/wiki/Project_Gemini" target="_blank">Continue Reading  on Wikipedia</a> </p>
+            </div>
+
+            <div class="col-md-4 col-sm-12">
+                <div class="chart-title"><h3>Apollo Program</h3></div>
+                <a href="https://en.wikipedia.org/wiki/Apollo_program" target="_blank">
+                    <img src="{{ url_for('static', filename='lib/images/apollo.jpg') }}" class="logo-sizing">
+                </a>
+                <p>
+                    The Apollo program, also known as Project Apollo, was the third United States human spaceflight program
+                    carried out by the National Aeronautics and Space Administration (NASA), which accomplished landing the
+                    first humans on the Moon from 1969 to 1972. First conceived during Dwight D. Eisenhower's administration
+                    as a three-man spacecraft to follow the one-man Project Mercury which put the first Americans in space,
+                    Apollo was later dedicated to President John F. Kennedy's national goal of "landing a man on the Moon and
+                    returning him safely to the Earth" by the end of the 1960s, which he proposed in an address to
+                    Congress on May 25, 1961.
+                </p>
+                <p><a href="https://en.wikipedia.org/wiki/Apollo_program" target="_blank">Continue Reading  on Wikipedia</a> </p>
+            </div>
+
+                <div class="col-md-4 col-sm-12">
+                <div class="chart-title"><h3>Salyut Programme</h3></div>
+                <a href="https://en.wikipedia.org/wiki/Salyut_programme" target="_blank">
+                    <img src="{{ url_for('static', filename='lib/images/salyut.png') }}" class="logo-sizing">
+                </a>
+                <p>
+                    The Salyut programme (Russian: Салю́т, IPA: [sɐˈlʲut], meaning "salute" or "fireworks") was the first
+                    space station programme undertaken by the Soviet Union. It involved a series of four crewed scientific
+                    research space stations and two crewed military reconnaissance space stations over a period of 15 years,
+                    from 1971 to 1986. Two other Salyut launches failed. In one respect, Salyut had the task of carrying
+                    out long-term research into the problems of living in space and a variety of astronomical, biological
+                    and Earth-resources experiments, and on the other hand the USSR used this civilian program as a cover
+                    for the highly secretive military Almaz stations, which flew under the Salyut designation. Salyut 1,
+                    the first station in the program, became the world's first crewed space station.
+                </p>
+                <p><a href="https://en.wikipedia.org/wiki/Salyut_programme" target="_blank">Continue Reading  on Wikipedia</a> </p>
+            </div>
+            </div>
+            <!-- end Third Row -->
+
+            <!-- Fourth Row -->
+            <div class="row">
+
+
+            <div class="col-md-4 col-sm-12">
+                <div class="chart-title"><h3>International Space Station</h3></div>
+                <a href="https://en.wikipedia.org/wiki/International_Space_Station" target="_blank">
+                    <img src="{{ url_for('static', filename='lib/images/ISS.jpg') }}" class="logo-sizing">
+                </a>
+                <p>
+                    The International Space Station (ISS) is a space station, or a habitable artificial satellite, in low Earth
+                    orbit. Its first component launched into orbit in 1998, and the ISS is now the largest man-made body in low
+                    Earth orbit and can often be seen with the naked eye from Earth.[9][10] The ISS consists of pressurised modules,
+                    external trusses, solar arrays, and other components. ISS components have been launched by Russian Proton and
+                    Soyuz rockets, and American Space Shuttles.
+                </p>
+                <p><a href="https://en.wikipedia.org/wiki/International_Space_Station" target="_blank">Continue Reading  on Wikipedia</a> </p>
+            </div>
+
+                <div class="col-md-4 col-sm-12">
+                <div class="chart-title"><h3>Skylab</h3></div>
+                <a href="https://en.wikipedia.org/wiki/Skylab" target="_blank">
+                    <img src="{{ url_for('static', filename='lib/images/skylab.png') }}" class="logo-sizing">
+                </a>
+                <p>
+                    Skylab was the United States' first space station, orbiting Earth from 1973 to 1979, when it fell back
+                    to Earth amid huge worldwide media attention. Launched and operated by NASA, Skylab included a workshop,
+                    a solar observatory, and other systems necessary for crew survival and scientific experiments. It was
+                    launched unmanned by a modified Saturn V rocket, with a weight of 170,000 pounds (77,111 kg). Lifting
+                    Skylab into low earth orbit was the final mission and launch of a Saturn V rocket (which was famous for
+                    carrying the manned Moon landing missions).[2] Skylab was not simply a place of habitation; massive
+                    science experimentation was undertaken there. When data from these experiments (some of which were on
+                    physical film) were returned to Earth, analysis of scientific and engineering data of each mission was
+                    completed. Skylab's solar observatory was one of its major functions. Solar science was significantly
+                    advanced by the telescope, and its observation of the Sun was unprecedented. As the Skylab program drew
+                    to a close, NASA's focus had shifted to the development of the Space Shuttle, through which NASA hoped
+                    to reduce the cost of space access compared to previous launch systems.
+                </p>
+                <p><a href="https://en.wikipedia.org/wiki/Skylab" target="_blank">Continue Reading on Wikipedia</a> </p>
+            </div>
 
             </div>
-       </div>
+            <!-- end Fourth Row -->
+
+        </div>
+        </div>
     </div>
+
 {% endblock %}

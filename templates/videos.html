@@ -1,109 +1,106 @@
 {% extends "layout.html" %}
 {% block content %}
     <div class="container">
-        <div class="col-sm-12 centered  white-box">
-             <!-- Carousel -->
-        <div class="col-sm-12">
-            <h2>Cool Photos Taken On Spacewalks!</h2>
-            <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                <!-- Indicators -->
-                <ol class="carousel-indicators">
-                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                    <li data-target="#myCarousel" data-slide-to="1"></li>
-                    <li data-target="#myCarousel" data-slide-to="2"></li>
-                    <li data-target="#myCarousel" data-slide-to="3"></li>
-                    <li data-target="#myCarousel" data-slide-to="4"></li>
-                    <li data-target="#myCarousel" data-slide-to="5"></li>
-                </ol>
-
-                <!-- Wrapper for slides -->
-                <div class="carousel-inner">
-
-                    <div class="item active">
-                        <img src="{{ url_for('static', filename='lib/images/spacewalk1.jpg') }}" alt="Spacewalk Image">
-                    </div>
-
-                    <div class="item">
-                        <img src="{{ url_for('static', filename='lib/images/spacewalk2.jpg') }}" alt="Spacewalk Image">
-                    </div>
-
-                    <div class="item">
-                        <img src="{{ url_for('static', filename='lib/images/spacewalk3.jpg') }}" alt="New York">
-                    </div>
-
-                    <div class="item">
-                        <img src="{{ url_for('static', filename='lib/images/spacewalk4.jpg') }}" alt="Spacewalk Image">
-                    </div>
-
-                    <div class="item">
-                        <img src="{{ url_for('static', filename='lib/images/spacewalk5.jpg') }}" alt="Spacewalk Image">
-                    </div>
-
-                    <div class="item">
-                        <img src="{{ url_for('static', filename='lib/images/spacewalk6.jpg') }}" alt="Spacewalk Image">
-                    </div>
+            <!-- First Row -->
+            <div class="chart-wrapper col-md-6 col-sm-12">
+                <div class="chart-title">
+                    <h2>Remembering The First Spacewalk</h2>
+                </div>
+                <iframe height="315px" width="460px" src="https://www.youtube.com/embed/WiEit6UrIGw" frameborder="0" allowfullscreen></iframe>
+                <div class="chart-notes">
+                    <p>Video source: <a href="https://www.nasa.gov/audience/foreducators/topnav/materials/listbytype/Extravehicular_Activity.html" target="_blank">Nasa</a> </p>
                 </div>
             </div>
-        </div>
-        <!-- end Carousel -->
-
-           <h2>Suit Up</h2>
-
-           <video controls poster="{{ url_for ('static', filename='lib/images/suitupPoster.jpg')}}">
-                <source src="https://www.youtube.com/embed/Z62z64-AyH0" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            <div class="info-box">
-                <h3>NASA Documentary celebrating 50 years of Spacewalks</h3>
-                <p>Video source: <a href="https://www.nasa.gov/audience/foreducators/topnav/materials/listbytype/Extravehicular_Activity.html" target="_blank">Nasa</a> </p>
-                <p>For more videos <a href="#" target="_blank">click here.</a> </p>
+            <div class="chart-wrapper col-md-6 col-sm-12">
+                <div class="chart-title">
+                    <h2>Suit Up - 50 Years of Spacewalks</h2>
+                </div>
+                <iframe height="315px" width="460px" src="https://www.youtube.com/embed/Z62z64-AyH0" frameborder="0" allowfullscreen></iframe>
+                <div class="chart-notes">
+                    <p>Video source: <a href="https://www.nasa.gov/audience/foreducators/topnav/materials/listbytype/Extravehicular_Activity.html" target="_blank">Nasa</a> </p>
+                </div>
             </div>
-       </div>
+            <!-- end First Row -->
 
-        <div class="col-sm-12 white-box">
-           <div class="row padding-top">
-                <div class="col-sm-6">
-                    <h3>First Spacewalk Ever</h3>
-                    <iframe  src="https://www.youtube.com/embed/uAPBRvd8OTY" frameborder="0" allowfullscreen></iframe>
+            <!-- Second Row -->
+            <div class="col-md-6 chart-wrapper col-sm-12">
+                <div class="chart-title">
+                        <h3>First Spacewalk Ever</h3>
+                </div>
+                <iframe height="315px" width="460px" src="https://www.youtube.com/embed/uAPBRvd8OTY" frameborder="0" allowfullscreen></iframe>
+                <div class="chart-notes">
                     <p>Video source: <a href="#" target="_blank">Nasa</a> </p>
-                <p>For more videos <a href="#" target="_blank">click here.</a> </p>
                 </div>
-               <div class="col-sm-6">
-                   <h3>First US Spacewalk</h3>
-                    <iframe src="https://www.youtube.com/embed/CPZSivgyV94" frameborder="0" allowfullscreen></iframe>
-                   <p>Video source: <a href="#" target="_blank">Nasa</a> </p>
-                <p>For more videos <a href="#" target="_blank">click here.</a> </p>
-               </div>
             </div>
-              <div class="row padding-top">
-                <div class="col-sm-6">
-                    <h3>First Spacewalk Ever</h3>
-                    <iframe  src="https://www.youtube.com/embed/uAPBRvd8OTY" frameborder="0" allowfullscreen></iframe>
+            <div class="col-md-6 chart-wrapper col-sm-12">
+                <div class="chart-title">
+                    <h3>First US Spacewalk</h3>
+                </div>
+                <iframe height="315px" width="460px" src="https://www.youtube.com/embed/CPZSivgyV94" frameborder="0" allowfullscreen></iframe>
+                <div class="chart-notes">
                     <p>Video source: <a href="#" target="_blank">Nasa</a> </p>
-                <p>For more videos <a href="#" target="_blank">click here.</a> </p>
                 </div>
-               <div class="col-sm-6">
-                   <h3>First US Spacewalk</h3>
-                    <iframe src="https://www.youtube.com/embed/CPZSivgyV94" frameborder="0" allowfullscreen></iframe>
-                   <p>Video source: <a href="#" target="_blank">Nasa</a> </p>
-                <p>For more videos <a href="#" target="_blank">click here.</a> </p>
-               </div>
             </div>
-              <div class="row padding-top">
-                <div class="col-sm-6">
-                    <h3>First Spacewalk Ever</h3>
-                    <iframe  src="https://www.youtube.com/embed/uAPBRvd8OTY" frameborder="0" allowfullscreen></iframe>
+            <!-- end Second Row -->
+
+            <!-- Third Row -->
+            <div class="col-md-6 chart-wrapper col-sm-12">
+                <div class="chart-title">
+                        <h3>Russian Spacewalk Go Pro Footage</h3>
+                </div>
+                <iframe height="315px" width="460px" src="https://www.youtube.com/embed/3jr2m_oEGcU" frameborder="0" allowfullscreen></iframe>
+                <div class="chart-notes">
                     <p>Video source: <a href="#" target="_blank">Nasa</a> </p>
-                <p>For more videos <a href="#" target="_blank">click here.</a> </p>
                 </div>
-               <div class="col-sm-6">
-                   <h3>First US Spacewalk</h3>
-                    <iframe src="https://www.youtube.com/embed/CPZSivgyV94" frameborder="0" allowfullscreen></iframe>
-                   <p>Video source: <a href="#" target="_blank">Nasa</a> </p>
-                <p>For more videos <a href="#" target="_blank">click here.</a> </p>
-               </div>
             </div>
-        </div>
+            <div class="col-md-6 chart-wrapper col-sm-12">
+                <div class="chart-title">
+                    <h3>US Spacewalk Go Pro Footage</h3>
+                </div>
+                <iframe height="315px" width="460px" src="https://www.youtube.com/embed/PG6JmKUpTsw" frameborder="0" allowfullscreen></iframe>
+                <div class="chart-notes">
+                    <p>Video source: <a href="#" target="_blank">Nasa</a> </p>
+                </div>
+            </div>
+            <!-- end Third Row -->
+
+            <!-- Third Row -->
+            <div class="col-md-6 chart-wrapper col-sm-12">
+                <div class="chart-title">
+                        <h3>Spacewalk Lifejacket</h3>
+                </div>
+                <iframe height="315px" width="460px" src="https://www.youtube.com/embed/Z7A72HSOzJU" frameborder="0" allowfullscreen></iframe>
+                <div class="chart-notes">
+                    <p>Video source: <a href="#" target="_blank">Nasa</a> </p>
+                </div>
+            </div>
+            <div class="col-md-6 chart-wrapper col-sm-12">
+                <div class="chart-title">
+                    <h3>Floating Away In Space?</h3>
+                </div>
+                <iframe height="315px" width="460px" src="https://www.youtube.com/embed/jXil9P1xqKI" frameborder="0" allowfullscreen></iframe>
+                <div class="chart-notes">
+                    <p>Video source: <a href="#" target="_blank">Nasa</a> </p>
+                </div>
+            </div>
+            <!-- end Third Row -->
+
+            <!-- Game Row -->
+            <div class="col-sm-12 chart-wrapper">
+                <div class="chart-title">
+                    <h3>Space Bugs Game!!!</h3>
+                </div>
+                <iframe src="http://www.freeonlinegames.com/embed/2757" width="560" height="470" frameborder="no" scrolling="no"></iframe>
+                <div class="chart-notes">
+                    <p>Space Bugs is a Space based Shooting Game. Your aim is to fly your space fighter and shoot down the invading hostile
+                    space bugs and clear them off, before advancing to the next level. The Bugs fly around in formations, they also shoot back,
+                    so avoid getting hit by the enemy bullets or you'll lose a life. You only have 3 lives in total. A tip is to hide in the bottom
+                        corners to avoid most of their bullets.</p>
+                    <h4>Instructions</h4>
+                    <p>Move Around / Fire = Mouse (left click button)</p>
+                     <p>Game source: <a href="#" target="_blank">FOG</a> </p>
+                </div>
+            </div>
 
     </div>
 {% endblock %}
