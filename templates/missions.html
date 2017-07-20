@@ -3,8 +3,8 @@
     <div class="container-fluid">
         <div class="row">
 
-            <!-- Year Row Chart -->
-            <div id="fixed-position-box" class="col-sm-2">
+            <!-- Year Row Chart (Side panel)-->
+            <div id="fixed-position-box" class="col-sm-2 col-md-2">
                 <div class="chart-wrapper" id="dc-year-row-chart">
                     <h2>Select a year</h2>
                     <div class="dc-data-count dc-chart" id="row-selection">
@@ -15,115 +15,97 @@
                      </div>
                 </div>
             </div>
-            <!-- end Year Row Chart -->
+            <!-- end Year Row Chart (Side Panel) -->
 
+            <!-- First Row -->
+             <div class="col-sm-10 col-sm-offset-2" id="scrollable-position">
+                <div class="row">
+                    <div class="col-sm-8">
+                        <div class="chart-wrapper">
+                            <div class="chart-title">
+                                <h2>Missions Timeline</h2>
+                                <div class="dc-data-count dc-chart" id="row-selection"></div>
+                            </div>
+                            <div class="chart-stage">
+                                <div id="grid-1-1">
+                                    <div id="dc-duration-chart"></div>
+                                </div>
+                            </div>
+                            <div class="chart-notes">Click and drag to filter the years<a href='javascript:dc.filterAll();dc.redrawAll();'><font color="#33CC99"> Reset</font></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="chart-wrapper">
+                            <div class="chart-title">
+                                <h2>Country</h2>
+                            </div>
+                            <div class="chart-stage">
+                                <div id='dc-missions-by-country-chart'></div>
+                            </div>
+                            <div class="chart-notes">Click to select a country<a href='javascript:dc.filterAll();dc.redrawAll();'><font color="#33CC99"> Reset</font></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                 <!-- end First Row -->
 
-    <div class="col-sm-10 col-sm-offset-2" id="scrollable-position">
-     <div class="row">
-      <div class="col-sm-8">
-        <div class="chart-wrapper">
-          <div class="chart-title">
-              <h2>Missions Timeline</h2>
-              <div class="dc-data-count dc-chart" id="row-selection">
+                 <!-- Second Row -->
+                <div class="row">
+                    <div class="col-sm-8">
+                        <div class="chart-wrapper">
+                            <div class="chart-title">
+                                <h2>Spacewalk Durations</h2>
+                            </div>
+                            <div class="chart-stage">
+                                <div id="dc-longest-spacewalk-chart"></div>
+                            </div>
+                            <div class="chart-notes">Hover over the bars to see the total time in space for that year<a href='javascript:dc.filterAll();dc.redrawAll();'><font color="#33CC99"> Reset</font></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="chart-wrapper">
+                            <div class="chart-title">
+                                <h2>Space Program</h2>
+                            </div>
+                            <div class="chart-stage">
+                                <div class='col-sm-6' id='dc-vehicle-chart'></div>
+                            </div>
+                            <div class="chart-notes">Click to select a Space Program<a href='javascript:dc.filterAll();dc.redrawAll();'><font color="#33CC99"> Reset</font></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                 <!-- end Second Row -->
 
-              </div>
-
-              <span>
-                <a class="reset"
-                href="javascript:magnitudeChart.filterAll();dc.redrawAll();"
-                style="display: none;">
-                reset
-                </a>
-              </span>
-          </div>
-          <div class="chart-stage">
-            <div id="grid-1-1">
-                <div id="dc-duration-chart"></div>
-                 <!--<div id="chart-ring-year">
-                     <h4>Choose a year</h4>
-                 </div>-->
-            </div>
-          </div>
-          <div class="chart-notes">
-            Notes about this chart
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-4">
-        <div class="chart-wrapper">
-          <div class="chart-title">
-            <h2>Country</h2>
-          </div>
-          <div class="chart-stage">
-              <div id='dc-missions-by-country-chart'></div>
-              <!--<div class="col-sm-4 chart-wrapper" id="total-missions">
-                    <div class="chart-title">  <h2> Total Missions Count </h2></div>
-               </div>-->
-          </div>
-          <div class="chart-notes">
-            Notes about this chart
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="row">
-        <div class="col-sm-6 col-md-8">
-        <div class="chart-wrapper">
-          <div class="chart-title">
-              <h2>Spacewalk Durations</h2>
-          </div>
-          <div class="chart-stage">
-            <div id="dc-longest-spacewalk-chart"></div>
-              <!-- <div id="dc-total-spacewalk">
-                    <div class="chart-title">  <h2> Total Time Spacewalking </h2></div>
-               </div> -->
-          </div>
-          <div class="chart-notes">
-            Notes about this chart
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-md-4">
-        <div class="chart-wrapper">
-          <div class="chart-title">
-              <h2>Space Program</h2>
-          </div>
-          <div class="chart-stage">
-            <div class='col-sm-6' id='dc-vehicle-chart'></div>
-          </div>
-          <div class="chart-notes">
-            Notes about this chart
-          </div>
-        </div>
-      </div>
-    </div>
-        <div class="row col-sm-12 centered  white-box">
-
-            <div class="white-border">
-            <h2>MISSIONS!!!!!</h2>
-            <table class='table table-hover' id='dc-table-graph'>
-                <thead>
-                <tr class='header'>
-                    <th>EVA#</th>
-                    <th>Country</th>
-                    <th>Crew</th>
-                    <th>Space Program</th>
-                    <th>Mission</th>
-                    <th>Date</th>
-                    <th>Duration</th>
-                    <th>Purpose</th>
-                </tr>
-
-                </thead>
-          </table>
-             <div class="info-box">
-                <p>Data source: <a href="https://data.nasa.gov/Raw-Data/Extra-vehicular-Activity-EVA-US-and-Russia/9kcy-zwvn" target="_blank">Extra-vehicular Activity (EVA) - US and Russia</a> </p>
-                <p>To find similar Open Source Data from Nasa visit the <a href="https://data.nasa.gov" target="_blank"> Nasa Open Data Portal</a> </p>
-            </div>
-        </div>
-        </div>
-
+                 <!-- Missions Data Table -->
+                 <div class="row col-sm-12 centered  white-box">
+                     <div class="white-border">
+                         <h2>MISSIONS!!!!!</h2>
+                         <table class='table table-hover' id='dc-table-graph'>
+                             <thead>
+                             <tr class='header'>
+                                 <th>EVA#</th>
+                                 <th>Country</th>
+                                 <th>Crew</th>
+                                 <th>Space Program</th>
+                                 <th>Mission</th>
+                                 <th>Date</th>
+                                 <th>Duration</th>
+                                 <th>Purpose</th>
+                             </tr>
+                             </thead>
+                         </table>
+                         <div class="info-box">
+                             <p>Data source: <a href="https://data.nasa.gov/Raw-Data/Extra-vehicular-Activity-EVA-US-and-Russia/9kcy-zwvn"
+                                                target="_blank">Extra-vehicular Activity (EVA) - US and Russia</a> </p>
+                             <p>To find similar Open Source Data from Nasa visit the <a href="https://data.nasa.gov" target="_blank"> Nasa Open Data Portal</a> </p>
+                         </div>
+                     </div>
+                 </div>
+                 <!-- end Missions Data Table -->
+             </div>
         </div>
     </div>
 

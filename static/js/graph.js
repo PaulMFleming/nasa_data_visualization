@@ -2,6 +2,25 @@ queue()
     .defer(d3.json, "/nasaData/missions")
     .await(makeGraphs);
 
+function parentWidth(elem) {
+        return elem.parentElement.clientWidth;
+    }
+
+    year_select_width = parentWidth(document.getElementById('dc-year-row-chart'));
+    chart_width = parentWidth(document.getElementById('dc-duration-chart'));
+    pie_width = parentWidth(document.getElementById('dc-missions-by-country-chart'));
+
+    year_select_element = document.getElementById('dc-year-row-chart');
+    positionInfo = year_select_element.getBoundingClientRect();
+    year_select_height = positionInfo.height;
+
+    duration_chart_element = document.getElementById('dc-duration-chart');
+    positionInfo = duration_chart_element.getBoundingClientRect();
+    chart_height = positionInfo.height;
+
+    pie_chart_element = document.getElementById('dc-missions-by-country-chart');
+    positionInfo = pie_chart_element.getBoundingClientRect();
+    pie_height = positionInfo.height;
 
 function makeGraphs(error, missionsJson) {
     var nasaDataMissions = missionsJson;
@@ -32,9 +51,6 @@ function makeGraphs(error, missionsJson) {
     var durationDimension = ndx.dimension(function (d) {
         return d["Hours"];
     });
-    var crewDimension = ndx.dimension(function (d) {
-        return d["Crew"];
-    });
     var yearDimension = ndx.dimension(function(d) {
         return d["Date"];
     });
@@ -45,7 +61,6 @@ function makeGraphs(error, missionsJson) {
     var countryGroup = countryDimension.group();
     var vehiclesGroup = vehicleDimension.group();
     var dateGroup = dateDimension.group();
-    var crewGroup = crewDimension.group();
     var durationGroup = yearDimension.group().reduceSum(function (d) {return d["Hours"];});
     var totalDurationGroup = durationDimension.group().reduceSum(function(d) {return d["Hours"];});
     var all = ndx.groupAll();
@@ -90,9 +105,10 @@ function makeGraphs(error, missionsJson) {
 
     // Define TimeLine Chart
     timelineChart
-        .width(800).height(200)
-            .dimension(dateDimension)
-            .group(dateGroup)
+        .width(chart_width)
+        .height(chart_height)
+        .dimension(dateDimension)
+        .group(dateGroup)
             .x(d3.time.scale().domain([minDate,maxDate]))
             .renderArea(true)
             .brushOn(true)
@@ -106,7 +122,7 @@ function makeGraphs(error, missionsJson) {
 
     // Define year pie chart
     yearRingChart
-        .width(250).height(250)
+        .width(pie_width).height(pie_height)
         .dimension(yearDimension)
         .group(year_total)
         .innerRadius(10)
@@ -115,7 +131,7 @@ function makeGraphs(error, missionsJson) {
 
     // Define year row chart
     yearRowChart
-        .width(300)
+        .width(year_select_width)
         .height(600)
         .dimension(yearDimension)
         .group(year_total)
@@ -129,7 +145,6 @@ function makeGraphs(error, missionsJson) {
         .innerRadius(10)
         .dimension(countryDimension)
         .group(countryGroup)
-        .legend(dc.legend())
         .renderLabel(true)
         .label(function (d) {
             console.log('label');
@@ -139,16 +154,16 @@ function makeGraphs(error, missionsJson) {
 
     // Define Space Programs Row Chart
     missionsByVehicleChart
-        .width(300)
-        .height(200)
+        .width(pie_width)
+        .height(pie_height)
         .dimension(vehicleDimension)
         .group(vehiclesGroup)
         .xAxis().ticks(6);
 
     // Define the Durations Chart
     longestSpacewalksChart
-        .width(800)
-        .height(200)
+        .width(chart_width)
+        .height(chart_height)
         .margins({top: 10, right: 50, bottom: 30, left: 50})
         .dimension(durationDimension)
         .group(durationGroup)
@@ -164,7 +179,7 @@ function makeGraphs(error, missionsJson) {
 
 
     // Define the table
-    dataTable.width(800).height(800)
+    dataTable.width(chart_width).height(800)
         .dimension(dateDimension)
         .group(function (d) { return ""})
         .size(375)
@@ -183,6 +198,35 @@ function makeGraphs(error, missionsJson) {
             return d["EVA #"]
         })
         .order(d3.ascending);
+
+
+    var resizeTimer;
+
+    $(window).on('resize', function(e) {
+
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function() {
+
+        dataTable.width(chart_width).height(chart_height);
+
+        longestSpacewalksChart.width(chart_width).height(chart_height);
+
+        missionsByVehicleChart.width(pie_height).height(pie_height);
+
+        missionsByCountryChart.width(chart_width).height(chart_height);
+
+        yearRowChart.width(year_select_width).height(600);
+
+        yearRingChart.width(year_select_width).height(year_select_height);
+
+        timelineChart.width(chart_width).height(chart_height);
+
+
+        window.location.reload();
+
+    }, 250);
+
+    });
 
 
     dc.renderAll();

@@ -28,21 +28,21 @@ img.planets-box {
  * Navbar styles
  */
 .navbar-default {
-    background-color: rgba(255,255,255,0.6);
+    background-color: rgba(0,0,0,0.6);
     background-image: url("/static/lib/images/stars1.png");
     border: none;
     font-size: 1.25em;
     font-weight: bold;
 }
 .navbar-default .navbar-nav>li>a {
-    color: #000;
+    color: #FFFFFF;
 }
 .navbar-default .navbar-nav>li>a:hover {
     color: #777;
     text-decoration: underline;
 }
 .navbar-brand>a {
-    color: #000000;
+    color: #FFFFFF;
 }
 .navbar-default .navbar-nav>li>a:hover {
     color: #FFFFFF;
@@ -177,4 +177,14 @@ iframe {
 #dc-year-row-chart>h2 {
     text-align: left;
     margin-left: 30px;
+}
+
+.pie-slice._0>path{
+    fill: rgb(234,16,16); !important;
+}
+.dc-legend-item rect{
+    /*fill: rgb(234,16,16);*/
+}
+div.dc-chart{
+    float: none;
 }
