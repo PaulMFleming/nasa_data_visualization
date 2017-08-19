@@ -112,7 +112,7 @@ function makeGraphs(error, missionsJson) {
             .x(d3.time.scale().domain([minDate,maxDate]))
             .renderArea(true)
             .brushOn(true)
-            .legend(dc.legend().x(450).y(10).itemHeight(13).gap(5))
+            //.legend(dc.legend().x(450).y(10).itemHeight(13).gap(5))
             .yAxisLabel("Number of Missions")
             .elasticY(true)
             .renderHorizontalGridLines(true)
