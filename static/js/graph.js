@@ -3,24 +3,24 @@ queue()
     .await(makeGraphs);
 
 function parentWidth(elem) {
-        return elem.parentElement.clientWidth;
-    }
+    return elem.parentElement.clientWidth;
+}
 
-    year_select_width = parentWidth(document.getElementById('dc-year-row-chart'));
-    chart_width = parentWidth(document.getElementById('dc-duration-chart'));
-    pie_width = parentWidth(document.getElementById('dc-missions-by-country-chart'));
+var year_select_width = parentWidth(document.getElementById('dc-year-row-chart'));
+chart_width = parentWidth(document.getElementById('dc-duration-chart'));
+pie_width = parentWidth(document.getElementById('dc-missions-by-country-chart'));
 
-    year_select_element = document.getElementById('dc-year-row-chart');
-    positionInfo = year_select_element.getBoundingClientRect();
-    year_select_height = positionInfo.height;
+year_select_element = document.getElementById('dc-year-row-chart');
+positionInfo = year_select_element.getBoundingClientRect();
+year_select_height = positionInfo.height;
 
-    duration_chart_element = document.getElementById('dc-duration-chart');
-    positionInfo = duration_chart_element.getBoundingClientRect();
-    chart_height = positionInfo.height;
+duration_chart_element = document.getElementById('dc-duration-chart');
+positionInfo = duration_chart_element.getBoundingClientRect();
+chart_height = positionInfo.height;
 
-    pie_chart_element = document.getElementById('dc-missions-by-country-chart');
-    positionInfo = pie_chart_element.getBoundingClientRect();
-    pie_height = positionInfo.height;
+pie_chart_element = document.getElementById('dc-missions-by-country-chart');
+positionInfo = pie_chart_element.getBoundingClientRect();
+pie_height = positionInfo.height;
 
 function makeGraphs(error, missionsJson) {
     var nasaDataMissions = missionsJson;
@@ -109,7 +109,7 @@ function makeGraphs(error, missionsJson) {
         .height(chart_height)
         .dimension(dateDimension)
         .group(dateGroup)
-            .x(d3.time.scale().domain([minDate,maxDate]))
+            .x(d3.scale.linear().domain([minDate,maxDate]))
             .renderArea(true)
             .brushOn(true)
             //.legend(dc.legend().x(450).y(10).itemHeight(13).gap(5))
@@ -168,7 +168,7 @@ function makeGraphs(error, missionsJson) {
         .dimension(durationDimension)
         .group(durationGroup)
         .transitionDuration(500)
-        .x(d3.time.scale().domain([minDate, maxDate]))
+        .x(d3.scale.linear().domain([minDate, maxDate]))
         .elasticY(true)
         .xAxisLabel("Year")
         .yAxisLabel("Number of Hours")
