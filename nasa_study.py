@@ -2,8 +2,12 @@ from flask import Flask
 from flask import render_template
 from pymongo import MongoClient
 import json
+import os
 
 app = Flask(__name__)
+
+MONGO_URI = os.getenv('mongodb://heroku_fbshg656:vi2umt8pao9jbh7tvrp5uinb3p@ds161860.mlab.com:61860/heroku_fbshg656', 'mongodb://localhost:27017')
+DBS_NAME = os.getenv('MONGO_DB_NAME', 'nasa')
 
 MONGODB_HOST = 'localhost'
 MONGODB_PORT = 27017
@@ -36,7 +40,7 @@ def nasa_missions():
 
     # Open a connection to MongoDB using a with statement
     # connection closes as soon as we exit the with statement
-    with MongoClient(MONGODB_HOST, MONGODB_PORT) as conn:
+    with MongoClient(MONGO_URI) as conn:
         # Define collection to access
         collection = conn[DBS_NAME][COLLECTION_NAME]
         # Retrieve results based on FIELDS and set a limit of results
