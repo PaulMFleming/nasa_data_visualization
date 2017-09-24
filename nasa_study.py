@@ -6,12 +6,8 @@ import os
 
 app = Flask(__name__)
 
-MONGO_URI = os.getenv('heroku_fbshg656', 'mongodb://localhost:27017')
-DBS_NAME = os.getenv('MONGO_DB_NAME', 'nasa')
-
-MONGODB_HOST = 'localhost'
-MONGODB_PORT = 27017
-DBS_NAME = 'nasaData'
+MONGO_URI = os.getenv('MONGO_URI', 'mongodb://localhost:27017')
+DBS_NAME = os.getenv('MONGO_DB_NAME', 'nasaData')
 COLLECTION_NAME = 'missions'
 
 @app.route('/')
