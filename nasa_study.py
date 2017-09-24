@@ -6,7 +6,7 @@ import os
 
 app = Flask(__name__)
 
-MONGO_URI = os.getenv('mongodb://heroku_fbshg656:vi2umt8pao9jbh7tvrp5uinb3p@ds161860.mlab.com:61860/heroku_fbshg656', 'mongodb://localhost:27017')
+MONGO_URI = os.getenv('heroku_fbshg656', 'mongodb://localhost:27017')
 DBS_NAME = os.getenv('MONGO_DB_NAME', 'nasa')
 
 MONGODB_HOST = 'localhost'
