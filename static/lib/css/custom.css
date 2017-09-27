@@ -51,6 +51,26 @@ img.planets-box {
     text-decoration: underline;
 }
 
+/*
+ * Tour button
+ */
+.btn-danger {
+    color: #fff;
+    background-color: #ea1010;
+    border-color: #6baed6;
+    border-radius: 5px;
+    margin-left: 15px;
+}
+.btn-danger:active, .btn-danger:focus {
+    color: #fff;
+    background-color: #ea1010;
+    border-color: #6baed6;
+}
+.btn-danger:hover {
+    color: #fff;
+    background-color: #ea1010;
+    border-color: transparent;
+}
 
 .padding-top {
     padding-top: 15px;
