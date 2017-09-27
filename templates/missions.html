@@ -5,7 +5,7 @@
 
             <!-- Year Row Chart (Side panel)-->
             <div id="fixed-position-box" class="col-sm-2 col-md-2">
-                <div class="chart-wrapper" id="dc-year-row-chart">
+                <div class="chart-wrapper"> 
                     <h2>Select a year</h2>
                     <div class="dc-data-count dc-chart" id="row-selection">
                         <span class="filter-count">_</span> of <span class="total-count">_</span> selected |
@@ -13,6 +13,10 @@
                              <a href='javascript:dc.filterAll();dc.redrawAll();'><font color="#33CC99">Reset All</font></a>
                          </span>
                      </div>
+                     <div id="dc-year-row-chart" data-step="1" data-intro="Here you can filter the data by the year. You can click on single or multiple years.
+                     For example: Clicking on '1965' will only show you the Spacewalking missions that happened in the year 1965.
+                     The other charts will change to reflect your choice."
+                     style="font-weight:normal" data-position="auto"></div>
                 </div>
             </div>
             <!-- end Year Row Chart (Side Panel) -->
@@ -24,11 +28,15 @@
                         <div class="chart-wrapper">
                             <div class="chart-title">
                                 <h2>Missions Timeline</h2>
-                                <div class="dc-data-count dc-chart" id="row-selection"></div>
+                                <div class="dc-data-count dc-chart"></div>
                             </div>
                             <div class="chart-stage">
                                 <div id="grid-1-1">
-                                    <div id="dc-duration-chart"></div>
+                                    <div id="dc-duration-chart" id="row-selection" data-step="2" data-intro="Here we can see the number of missions per year charted out over time.
+                                    The higher the peaks, the more missions happened in that particular year.
+                                    You can also click and drag to filter by the years.
+                                    " 
+                                    style="font-weight: normal" data-position="auto"></div>
                                 </div>
                             </div>
                             <div class="chart-notes">Click and drag to filter the years - <a href='javascript:dc.filterAll();dc.redrawAll();'><font color="#33CC99">  Reset</font></a>
@@ -41,7 +49,8 @@
                                 <h2>Country</h2>
                             </div>
                             <div class="chart-stage">
-                                <div id='dc-missions-by-country-chart'></div>
+                                <div id='dc-missions-by-country-chart' data-step="3" data-intro="Here you can filter by the country. Useful Tip: underneath every graph there's
+                                a handy 'reset' button." style="font-weight: normal" data-position="auto"></div>
                             </div>
                             <div class="chart-notes">Click to select a country - <a href='javascript:dc.filterAll();dc.redrawAll();'><font color="#33CC99">  Reset</font></a>
                             </div>
@@ -58,7 +67,8 @@
                                 <h2>Spacewalk Durations</h2>
                             </div>
                             <div class="chart-stage">
-                                <div id="dc-longest-spacewalk-chart"></div>
+                                <div id="dc-longest-spacewalk-chart" data-step="5" data-intro="Here you can see the total number of hours spent per year by astronauts
+                                and cosmanauts actually outside spaceships doing their missions." style="font-weight: normal" data-position="auto"></div>
                             </div>
                             <div class="chart-notes">Hover over the bars to see the total time in space for that year - <a href='javascript:dc.filterAll();dc.redrawAll();'><font color="#33CC99">  Reset</font></a>
                             </div>
@@ -70,7 +80,8 @@
                                 <h2>Space Program</h2>
                             </div>
                             <div class="chart-stage">
-                                <div class='col-sm-6' id='dc-vehicle-chart'></div>
+                                <div class='col-sm-6' id='dc-vehicle-chart' data-step="6" data-intro="Here you can filter by the space program. Useful Tip: You can filter by
+                                multiple graphs at the same time!" style="font-weight: normal" data-position="auto"></div>
                             </div>
                             <div class="chart-notes">Click to select a Space Program - <a href='javascript:dc.filterAll();dc.redrawAll();'><font color="#33CC99"> Reset</font></a>
                             </div>
@@ -83,7 +94,9 @@
                  <div class="row col-sm-12 centered  white-box">
                      <div class="white-border">
                          <h2>MISSIONS!!!!!</h2>
-                         <table class='table table-hover' id='dc-table-graph'>
+                         <table class='table table-hover' id='dc-table-graph' data-step="7" data-intro="This is my favorite part - the details of the Spacewalking missions themselves.
+                         Here you can find out which astronauts or cosmonauts were on which mission, the purpose of the missions and much more.
+                         I recommend filtering by the years you're interested in here.... otherwise you'll be scrolling for a while!" style="font-weight: normal" data-position="auto">
                              <thead>
                              <tr class='header'>
                                  <th>EVA#</th>

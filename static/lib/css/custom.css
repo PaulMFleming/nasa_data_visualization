@@ -72,6 +72,43 @@ img.planets-box {
     border-color: transparent;
 }
 
+/*
+ * Customize Intro.js here
+ */
+.introjs-helperLayer {
+    box-sizing: content-box;
+    position: absolute;
+    z-index: 9999998;
+    /* background-color: #FFF; */
+    background-color: transparent;
+    border: 1px solid #ea1010;
+    border-radius: 4px;
+    box-shadow: 0 2px 15px rgba(0,0,0,.4);
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+}
+.introjs-tooltip {
+    box-sizing: content-box;
+    position: absolute;
+    visibility: visible;
+    padding: 10px;
+    background-color: rgba(0,0,0,0.6);
+    min-width: 200px;
+    max-width: 300px;
+    border-radius: 3px;
+    border: #e91010;
+    color: #fff;
+    box-shadow: 0 1px 10px rgb(234, 16, 16);
+    -webkit-transition: opacity 0.1s ease-out;
+    -moz-transition: opacity 0.1s ease-out;
+    -ms-transition: opacity 0.1s ease-out;
+    -o-transition: opacity 0.1s ease-out;
+    transition: opacity 0.1s ease-out;
+}
+
 .padding-top {
     padding-top: 15px;
 }
