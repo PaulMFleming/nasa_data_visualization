@@ -73,6 +73,24 @@ img.planets-box {
     background-color: #ea1010;
     border-color: transparent;
 }
+.btn-info {
+    color: #fff;
+    background-color: #6baed6;
+    border-color: #ea1010;
+    border-radius: 5px;
+    margin-left: 15px;
+}
+.btn-info:active, .btn-danger:focus {
+    color: #fff;
+    background-color: #6baed6;
+    border-color: #ea1010;
+}
+.btn-info:hover {
+    color: #fff;
+    background-color: #6baed6;
+    border-color: transparent;
+}
+
 
 /*
  * Customize Intro.js here
