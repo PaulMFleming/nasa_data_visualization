@@ -27,7 +27,6 @@ MongoDB | | The databse that holds all the data the charts are eading from.
 ### Note on the javascript graphs
 The graphs are made with a combination of javascript libraries (listed above) however these libraries don't work so well with responsive layouts. I did my best to create as many workarounds for this as possible. One was a function that reloads the webpage after checking to see if the page size has been refreshed. The pie chart in particular does not play well with beinb resized by the browser window.
 
-
 ## Testing
 
 ### Manual Testing
@@ -42,42 +41,6 @@ The graphs are made with a combination of javascript libraries (listed above) ho
 * The site is deployed on [heroku](www.heroku.com) and uses mongoDB for it's database.
 
 ------------------------------
-
-## Testing
-
-### Manual Testing
-* I manually tested every component of the site as I built it by running it in the browser and verifying that users could achieve the functionality they were after. For example when I set up logging in and logging out I manually verified that it worked in several different browsers (Chrome, Opera and Firefox) and when something wasn't working I would fix the problem and then reverify that everything was working in each broswer before moving on to the next stage of functionality. 
-* I repeated this process to verify:
-   * users can register a new account
-   * users can use the timer both with and without registering
-   * users can set different times, images and sounds in the timer
-   * registered users can upoad their own images to be used in the timer
-   * registered users can see their uploaded images in their timer
-   * registered users can create diary entries when the timer has finished
-   * registered users can see all of their past diary entries in their diary page
-   * the navigation links change depending on whether you are logged in or not
-   * messages display when users log in and out
-   * error messages display when user actions fail (logging in, incorrect card details, wrong passwords, image uploading, not filling in a form)
-   * site is responsive on different screen sizes
-   * the site can handle multiple logins - I had four seperate accounts logged in at once (two were on phones while two were on laptops)
-* I had two people act as test case users to test if they could:
-    * Register a new account
-    * Log in and out of their account
-    * See messages when they logged in and out
-    * Change settings in the timer and use it succesfully
-    * Play audio sounds when clicking on the audio buttons
-    * submit a diary entry after meditating
-    * view their diary entry after meditating (or just letting the timer run it's course)
-
-### Automated Testing
-* I added test files in each of the apps to test
-    * urls
-    * views
-    * models
-
-
-
------------------------------
 
 ## Motivation
 The project came about from a desire to make a data visualization about something you don't
