@@ -8,15 +8,14 @@
 
 ## Build
 
+### Dependencies
 Technology | Version | Reason For Use
 --------- | --------| ------------------
-Flask | 0.12.2 | Flask is a microframework built on python that runs sites like this which interact with databases
-in an extremely efficient and easy way. Flask is very quick to get u and running and works particularly with mongdb
+Flask | 0.12.2 | Flask is a microframework built on python that runs sites like this which interact with databases in an extremely efficient and easy way. Flask is very quick to get up and running and works particularly with mongdb
 Pymongo | 3.4.0 | Pymongo contains tools for Python to interact with Mongodb and so was essential here
 gunicorn | 19.7.1 | used to interact with heroku 
 itsdangerous | 0.24 | Various helpers to pass data to untrusted environments and to get it back safe and sound.
-Jinja2 | 2.9.6 | Jinja2 is a modern and designer-friendly templating language for Python, modelled after Django’s templates. 
-It is fast, widely used and secure with the optional sandboxed template execution environment:
+Jinja2 | 2.9.6 | Jinja2 is a modern and designer-friendly templating language for Python, modelled after Django’s templates. It is fast, widely used and secure with the optional sandboxed template execution environment:
 Bootstrap | 3.2.0 | Used for responsive layout and ease of building navigation
 jQuery | 2.1.4 | Used in conjunction with Javascript and the other JS libraries listed below to run the graphs
 d3 js | | is a JavaScript library for visualizing data. D3 helps you bring data to life using SVG, Canvas and HTML
@@ -25,18 +24,22 @@ dc.js | | used with d3 to render graphs as CSS friendly SVGs
 intro.js | | used to set the Tour given when pressing the Start Tour button
 MongoDB | | The databse that holds all the data the charts are eading from.
 
+### Note on the javascript graphs
+The graphs are made with a combination of javascript libraries (listed above) however these libraries don't work so well with responsive layouts. I did my best to create as many workarounds for this as possible. One was a function that reloads the webpage after checking to see if the page size has been refreshed. The pie chart in particular does not play well with beinb resized by the browser window.
+
+
+## Testing
+
+### Manual Testing
+* I manually tested every component of the site as I built it by running it in the browser and verifying that users could achieve the functionality they were after. For example when I set up logging in and logging out I manually verified that it worked in several different browsers (Chrome, Opera and Firefox) and when something wasn't working I would fix the problem and then reverify that everything was working in each broswer before moving on to the next stage of functionality. 
+* I repeated this process to verify:
+    * All the links work 
+    * all the graphs render
+    * the graphs display the correct information they're supposed to
+    * the graphs work as they were intended to eg.... clicking Russia in the pie-chart will only show Russian Missions in the table below
 
 ### Deployment
 * The site is deployed on [heroku](www.heroku.com) and uses mongoDB for it's database.
-
-### Build Structure
-* As this is a Django site it is composed of different apps which are:
-    * __Accounts -__ Controls all the functionality for logging and out, registering new accounts and processing payment
-    * __Diary -__ Controls all the functionality for writing a new diary entry and viewing old diary entries
-    * __Hello -__ Controls the static pages (the home page and the guide page)
-    * __Timer -__ Controls all the functionality relating to viewing the timer and making sure the logged in user will only see their own images
-    * __UserUploads -__ Controls the functionality for uploading images to Amazon S3
-
 
 ------------------------------
 
@@ -89,14 +92,6 @@ heavily throughout the design process.
 ## Author and Contributors
 * [Paul Fleming] (https://www.linkedin.com/in/paulmfleming/) - Coding and Design
 
-* [Square Apple Graphics](https://www.facebook.com/squareapplegraphics) - Site Logo
-
-* [Headers](https://www.freewebheaders.com) and [Focus Images](www.desktopnexus.com)
-
-* [klankbeeld](https://freesound.org/people/klankbeeld/) on www.freesound.org - Ambient Sounds 
-
-* www.freesound.org - Bell sounds released under creative commons
-
-* [Srihari Gopal](https://gist.github.com/gabrielfalcao/6518127) - ascii art (see below)
+* Background Image from www.123rf.com
 
 ## Peace and Thanks, Paul
