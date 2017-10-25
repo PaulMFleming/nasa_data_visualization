@@ -1,3 +1,5 @@
+// Script to control the graphs on the missions page
+
 queue()
     .defer(d3.json, "/nasaData/missions")
     .await(makeGraphs);
@@ -6,22 +8,25 @@ function parentWidth(elem) {
     return elem.parentElement.clientWidth;
 }
 
+// set variables
 var year_select_width = parentWidth(document.getElementById('dc-year-row-chart'));
-chart_width = parentWidth(document.getElementById('dc-duration-chart'));
-pie_width = parentWidth(document.getElementById('dc-missions-by-country-chart'));
+var chart_width = parentWidth(document.getElementById('dc-duration-chart'));
+var pie_width = parentWidth(document.getElementById('dc-missions-by-country-chart'));
 
-year_select_element = document.getElementById('dc-year-row-chart');
-positionInfo = year_select_element.getBoundingClientRect();
-year_select_height = positionInfo.height;
+var year_select_element = document.getElementById('dc-year-row-chart');
+var positionInfo = year_select_element.getBoundingClientRect();
+var year_select_height = positionInfo.height;
 
-duration_chart_element = document.getElementById('dc-duration-chart');
-positionInfo = duration_chart_element.getBoundingClientRect();
-chart_height = positionInfo.height;
+var duration_chart_element = document.getElementById('dc-duration-chart');
+var positionInfo = duration_chart_element.getBoundingClientRect();
+var chart_height = positionInfo.height;
+ 
+var pie_chart_element = document.getElementById('dc-missions-by-country-chart');
+var positionInfo = pie_chart_element.getBoundingClientRect();
+var pie_height = positionInfo.height;
 
-pie_chart_element = document.getElementById('dc-missions-by-country-chart');
-positionInfo = pie_chart_element.getBoundingClientRect();
-pie_height = positionInfo.height;
 
+// functions to ccontrol the graphs
 function makeGraphs(error, missionsJson) {
     var nasaDataMissions = missionsJson;
     var dateFormat = d3.time.format("%m/%d/%Y");
@@ -177,7 +182,6 @@ function makeGraphs(error, missionsJson) {
         .brushOn(false)
         .yAxis().ticks(4);
 
-
     // Define the table
     dataTable.width(chart_width).height(800)
         .dimension(dateDimension)
@@ -199,7 +203,11 @@ function makeGraphs(error, missionsJson) {
         })
         .order(d3.ascending);
 
-
+    // the following is to help with resizing the graphs
+    // I included this as the dc graphs don't like to resize 
+    // very well so this is a workaround, it checks if the page
+    // has been resized and if it has it reloads the browser
+    // and redraws the graphs. 
     var resizeTimer;
 
     $(window).on('resize', function(e) {
