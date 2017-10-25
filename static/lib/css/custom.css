@@ -224,6 +224,11 @@ iframe {
 #fixed-position-box {
     position: fixed;
 }
+@media only screen and (max-width:500px) {
+    #fixed-position-box {
+        display: none;
+    }
+}
 #dc-year-row-chart {
     position: absolute;
 }
