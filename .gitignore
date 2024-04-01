@@ -1,2 +1,3 @@
 .idea .gitignore
 static/lib/video
+venv/
