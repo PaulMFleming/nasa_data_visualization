@@ -1,16 +1,21 @@
 from flask import Flask
 from flask import render_template
 from flask_sqlalchemy import SQLAlchemy
+from dotenv import load_dotenv
 import json
 import os
 
+load_dotenv()
+
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL')
+print("SQLAlchemy Database URL:", app.config['SQLALCHEMY_DATABASE_URI'])
 db = SQLAlchemy(app)
 
 class Mission(db.Model):
+    __tablename__ = 'nasa_eva'
     id = db.Column(db.Integer, primary_key=True)
-    eva_number = db.Column(db.Integer)
+    evanumber = db.Column(db.Integer)
     country = db.Column(db.String(255))
     crew = db.Column(db.String(255))
     vehicle = db.Column(db.String(255))
@@ -21,7 +26,7 @@ class Mission(db.Model):
     def to_dict(self):
         return {
             'id': self.id,
-            'eva_number': self.eva_number,
+            'eva_number': self.evanumber,
             'country': self.country,
             'crew': self.crew,
             'vehicle': self.vehicle,
@@ -30,8 +35,6 @@ class Mission(db.Model):
             'purpose': self.purpose
         }
 
-MONGO_URI = os.getenv('MONGO_URI', 'mongodb://localhost:27017')
-DBS_NAME = os.getenv('MONGO_DB_NAME', 'nasaData')
 COLLECTION_NAME = 'missions'
 
 @app.route('/')
