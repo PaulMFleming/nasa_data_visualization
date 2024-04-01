@@ -1,4 +1,4 @@
-EVA #,Country,Crew    ,Vehicle,Date,Duration,Purpose 
+EvaNumber,Country,Crew,Vehicle,Date,Duration,Purpose 
 1,USA,Ed White,Gemini IV,06/03/1965,0:36,First U.S. EVA. Used HHMU and took  photos.  Gas flow cooling of 25ft umbilical overwhelmed by vehicle ingress work and helmet fogged.  Lost overglove.  Jettisoned thermal gloves and helmet sun visor
 2,USA,David Scott,Gemini VIII,"March 16-17, 1966",0:00,HHMU EVA cancelled before starting by stuck on vehicle thruster that ended mission early
 3,USA,Eugene Cernan,Gemini IX-A,06/05/1966,2:07,"Inadequate restraints, stiff 25ft umbilical and high workloads exceeded suit vent loop cooling capacity and caused fogging.  Demo called off of tethered astronaut maneuvering unit"
