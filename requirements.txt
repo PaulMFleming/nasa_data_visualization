@@ -3,6 +3,6 @@ Flask
 gunicorn
 itsdangerous
 Jinja2
-MarkupSa
+MarkupSafe
 pymongo
 Werkzeug
