@@ -11,6 +11,7 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL')
 print("SQLAlchemy Database URL:", app.config['SQLALCHEMY_DATABASE_URI'])
 db = SQLAlchemy(app)
+db.init_app(app)
 
 class Mission(db.Model):
     __tablename__ = 'nasa_eva'
