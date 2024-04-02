@@ -41,38 +41,42 @@ function makeGraphs(error, missionsJson) {
     nasaDataMissions.forEach(function (d) {
       var parsedDate = dateFormat.parse(d["date"]);
       if (parsedDate) {
-          d["date"] = parsedDate.getFullYear();
+        d["date"] = parsedDate.getFullYear();
       } else {
-          console.error('Failed to parse date: ' + d["date"]);
+        console.error('Failed to parse date: ' + d["date"]);
       }
       d["evanumber"] = parseInt(d["evanumber"]);
-      var [hours, mins] = d["duration"].split(":");
-      d["Hours"] = parseInt(hours) + parseInt(mins) / 60;
-  });
+      if (d["duration"]) { // adding check here
+        var [hours, mins] = d["duration"].split(":");
+        d["Hours"] = parseInt(hours) + parseInt(mins) / 60;
+      } else {
+        console.error('Failed to parse duration: ' + d["duration"]);
+      }
+    });
 
     // run the data through Crossfilter and load it as 'ndx'
     var ndx = crossfilter(nasaDataMissions);
 
     // Create dimensions to bind data to crossfilter
     var dateDimension = ndx.dimension(function (d) {
-        return d["Date"];
+        return d["date"];
     });
     var countryDimension = ndx.dimension(function (d) {
-        return d["Country"];
+        return d["country"];
     });
     var vehicleDimension = ndx.dimension(function (d) {
-        return d["Vehicle"];
+        return d["vehicle"];
     });
     var durationDimension = ndx.dimension(function (d) {
         return d["Hours"];
     });
     var yearDimension = ndx.dimension(function(d) {
-        return d["Date"];
+        return d["date"];
     });
 
 
     // Calculate metrics
-    var year_total = yearDimension.group().reduceCount(function(d) {return d["Date"];});
+    var year_total = yearDimension.group().reduceCount(function(d) {return d["date"];});
     var countryGroup = countryDimension.group();
     var vehiclesGroup = vehicleDimension.group();
     var dateGroup = dateDimension.group();
@@ -94,8 +98,8 @@ function makeGraphs(error, missionsJson) {
 
 
     //Define values (to be used in charts)
-    var minDate = dateDimension.bottom(1)[0]["Date"];
-    var maxDate = dateDimension.top(1)[0]["Date"];
+    var minDate = dateDimension.bottom(1)[0]["date"];
+    var maxDate = dateDimension.top(1)[0]["date"];
     var average = function(d) {return d.n ? d.tot / d.n : 0;};
 
 
@@ -198,18 +202,18 @@ function makeGraphs(error, missionsJson) {
         .group(function (d) { return ""})
         .size(375)
         .columns([
-            function(d) {return d["EVA #"]},
-            function(d) {return d["Country"]},
-            function(d) {return d["Crew"]},
-            function(d) {return d["Vehicle"]},
-            function(d) {return d["Model #"]},
-            function(d) {return d["Date"]},
-            function(d) {return d["Duration"]},
-            function(d) {return d["Purpose"]}
+            function(d) {return d["evanumber"]},
+            function(d) {return d["country"]},
+            function(d) {return d["crew"]},
+            function(d) {return d["vehicle"]},
+            function(d) {return d["vehiclenumber"]},
+            function(d) {return d["date"]},
+            function(d) {return d["duration"]},
+            function(d) {return d["purpose"]}
 
         ])
         .sortBy(function (d) {
-            return d["EVA #"]
+            return d["evanumber"]
         })
         .order(d3.ascending);
 

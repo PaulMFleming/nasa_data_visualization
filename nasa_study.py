@@ -14,22 +14,24 @@ db = SQLAlchemy(app)
 
 class Mission(db.Model):
     __tablename__ = 'nasa_eva'
-    id = db.Column(db.Integer, primary_key=True)
+    _id = db.Column(db.String, primary_key=True)
     evanumber = db.Column(db.Integer)
     country = db.Column(db.String(255))
     crew = db.Column(db.String(255))
     vehicle = db.Column(db.String(255))
+    vehiclenumber = db.Column(db.String(255))
     date = db.Column(db.String(255))
     duration = db.Column(db.String(255))
     purpose = db.Column(db.Text)
 
     def to_dict(self):
         return {
-            'id': self.id,
+            'id': self._id,
             'eva_number': self.evanumber,
             'country': self.country,
             'crew': self.crew,
             'vehicle': self.vehicle,
+            'vehiclenumber': self.vehiclenumber,
             'date': self.date,
             'duration': self.duration,
             'purpose': self.purpose
