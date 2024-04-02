@@ -8,8 +8,9 @@ import os
 load_dotenv()
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
-db = SQLAlchemy(app)
+with app.app_context():
+  app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
+  db = SQLAlchemy(app)
 
 class Mission(db.Model):
     __tablename__ = 'nasa_eva'
