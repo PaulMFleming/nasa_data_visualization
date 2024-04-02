@@ -1,12 +1,18 @@
-// Script to control the graphs on the missions page
-
-queue()
-    .defer(d3.json, "/nasaData/missions")
-    .await(makeGraphs);
-
+// Define parentWidth function
 function parentWidth(elem) {
-    return elem.parentElement.clientWidth;
+  return elem.parentElement.clientWidth;
 }
+
+// Script to control the graphs on the missions page
+queue()
+  .defer(d3.json, "/nasaData/missions")
+  .await(function(error, data) {
+      if (error) {
+          console.error('Error loading data:', error);
+      } else {
+          makeGraphs(null, data);
+      }
+  });
 
 // set variables
 var year_select_width = parentWidth(document.getElementById('dc-year-row-chart'));
@@ -26,19 +32,23 @@ var positionInfo = pie_chart_element.getBoundingClientRect();
 var pie_height = positionInfo.height;
 
 
-// functions to ccontrol the graphs
+// functions to control the graphs
 function makeGraphs(error, missionsJson) {
     var nasaDataMissions = missionsJson;
     var dateFormat = d3.time.format("%m/%d/%Y");
 
 
     nasaDataMissions.forEach(function (d) {
-        d["Date"] = dateFormat.parse(d["Date"]);
-        d["EVA #"] = parseInt(d["EVA #"]);
-        d["Date"] = d["Date"].getFullYear();
-        var [hours, mins] = d["Duration"].split(":");
-        d["Hours"] = parseInt(hours) + parseInt(mins) / 60;
-    });
+      var parsedDate = dateFormat.parse(d["date"]);
+      if (parsedDate) {
+          d["date"] = parsedDate.getFullYear();
+      } else {
+          console.error('Failed to parse date: ' + d["date"]);
+      }
+      d["evanumber"] = parseInt(d["evanumber"]);
+      var [hours, mins] = d["duration"].split(":");
+      d["Hours"] = parseInt(hours) + parseInt(mins) / 60;
+  });
 
     // run the data through Crossfilter and load it as 'ndx'
     var ndx = crossfilter(nasaDataMissions);
