@@ -41,7 +41,7 @@ The graphs are made with a combination of javascript libraries (listed above) ho
     * the graphs work as they were intended to eg.... clicking Russia in the pie-chart will only show Russian Missions in the table below
 
 ### Deployment
-* The site is deployed on 
+* The site is currently deployed on Render: https://nasa-data-visualization.onrender.com/
 
 ------------------------------
 
