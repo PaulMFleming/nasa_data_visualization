@@ -45,14 +45,19 @@ function makeGraphs(error, missionsJson) {
       } else {
         console.error('Failed to parse date: ' + d["date"]);
       }
-      d["evanumber"] = parseInt(d["evanumber"]);
-      if (d["duration"]) { // adding check here
+      if (!isNaN(d["evanumber"])) { // check if evanumber is a number
+        d["evanumber"] = parseInt(d["evanumber"]);
+      } else {
+        console.error("evanumber is not a number: " + d["evanumber"]);
+      }
+      if (d["duration"]) {
         var [hours, mins] = d["duration"].split(":");
         d["Hours"] = parseInt(hours) + parseInt(mins) / 60;
       } else {
         console.error('Failed to parse duration: ' + d["duration"]);
       }
     });
+    
 
     // run the data through Crossfilter and load it as 'ndx'
     var ndx = crossfilter(nasaDataMissions);
